@@ -26,4 +26,18 @@ inline string Cidade::getCidade() const {
     return cidade;
 };
 
+class Codigo {
+    private:
+        inline static const string INVALIDO = "0000000";
+        string codigo;
+        void validar(string);
+    public:
+        void setCodigo(string);
+        string getCodigo() const;
+};
+
+inline string Codigo::getCodigo() const {
+    return codigo;
+}
+
 #endif
