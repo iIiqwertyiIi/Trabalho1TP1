@@ -1,6 +1,7 @@
 #include "domain.h"
 
-void Cidade::validar(string cidade) {
+void Cidade::validar(string cidade)
+{
     int valido = 0;
     for (int i = 0; i < CIDADES.size(); i++)
         if (cidade == CIDADES[i])
@@ -9,18 +10,21 @@ void Cidade::validar(string cidade) {
         throw invalid_argument("Cidade " + cidade + " inválida");
 };
 
-void Cidade::setCidade(string cidade) {
+void Cidade::setCidade(string cidade)
+{
     validar(cidade);
     this->cidade = cidade;
 };
 
-void Codigo::validar(string codigo) {
+void Codigo::validar(string codigo)
+{
     vector<int> array = {};
     int soma = 0;
     int verificador = 0;
     if (codigo.length() != 7)
         throw invalid_argument("Código " + codigo + " com tamanho diferente de 7");
-    for (int i = 0; i < codigo.length(); i++) {
+    for (int i = 0; i < codigo.length(); i++)
+    {
         int a = codigo[i];
         if (a < 48 || a > 57)
             throw invalid_argument("Código " + codigo + " com dígitos diferentes de números");
@@ -35,7 +39,24 @@ void Codigo::validar(string codigo) {
         throw invalid_argument("Código " + codigo + " com verificador errado");
 };
 
-void Codigo::setCodigo(string codigo) {
+void Codigo::setCodigo(string codigo)
+{
     validar(codigo);
     this->codigo = codigo;
+};
+
+void Duracao::validar(int duracao)
+{
+    int valido = 0;
+    for (int i = 0; i < DURACOES.size(); i++)
+        if (duracao == DURACOES[i])
+            valido = 1;
+    if (valido == 0)
+        throw invalid_argument("Duração inválida");
+};
+
+void Duracao::setDuracao(int duracao)
+{
+    validar(duracao);
+    this->duracao = duracao;
 };
