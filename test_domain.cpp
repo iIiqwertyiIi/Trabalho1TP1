@@ -1,4 +1,5 @@
 #include "test_domain.h"
+#include <iostream>
 
 void TUCidade::setUp() {
     cidade = new Cidade();
@@ -17,6 +18,7 @@ void TUCidade::testarValido() {
     }
     catch(invalid_argument &excessao) {
         estado = FALHA;
+        cout << excessao.what() << endl;
     };
 };
 
@@ -28,6 +30,7 @@ void TUCidade::testarInvalido() {
     catch(invalid_argument &excessao) {
         if (cidade->getCidade() == CIDADE_INVALIDA)
             estado = FALHA;
+        cout << excessao.what() << endl;
     };
 };
 
@@ -56,6 +59,7 @@ void TUCodigo::testarValido() {
     }
     catch(invalid_argument &excessao) {
         estado = FALHA;
+        cout << excessao.what() << endl;
     };
 };
 
@@ -67,6 +71,7 @@ void TUCodigo::testarInvalido1() {
     catch(invalid_argument &excessao) {
         if (codigo->getCodigo() == CODIGO_INVALIDO_1)
             estado = FALHA;
+        cout << excessao.what() << endl;
     };
 };
 
@@ -78,6 +83,43 @@ void TUCodigo::testarInvalido2() {
     catch(invalid_argument &excessao) {
         if (codigo->getCodigo() == CODIGO_INVALIDO_2)
             estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUCodigo::testarInvalido3() {
+    try {
+        codigo->setCodigo(CODIGO_INVALIDO_3);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (codigo->getCodigo() == CODIGO_INVALIDO_3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUCodigo::testarInvalido4() {
+    try {
+        codigo->setCodigo(CODIGO_INVALIDO_4);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (codigo->getCodigo() == CODIGO_INVALIDO_4)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUCodigo::testarInvalido5() {
+    try {
+        codigo->setCodigo(CODIGO_INVALIDO_5);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (codigo->getCodigo() == CODIGO_INVALIDO_5)
+            estado = FALHA;
+        cout << excessao.what() << endl;
     };
 };
 
@@ -86,6 +128,9 @@ int TUCodigo::run() {
     testarValido();
     testarInvalido1();
     testarInvalido2();
+    testarInvalido3();
+    testarInvalido4();
+    testarInvalido5();
     tearDown();
     return estado;
 };

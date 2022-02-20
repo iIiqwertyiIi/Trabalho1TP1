@@ -31,6 +31,16 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename=".gitignore" />
+		<Unit filename="domain.cpp" />
+		<Unit filename="domain.h" />
+		<Unit filename="entity.cpp" />
+		<Unit filename="entity.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="test_domain.cpp" />
+		<Unit filename="test_domain.h" />
+		<Unit filename="test_entity.cpp" />
+		<Unit filename="test_entity.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
