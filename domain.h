@@ -38,6 +38,22 @@ class Codigo {
 
 inline string Codigo::getCodigo() const {
     return codigo;
-}
+};
+
+class Endereco {
+    private:
+        inline static const int LIMITE = 20;
+        inline static const string ESPACO = " ";
+        inline static const string PONTO = ".";
+        string endereco;
+        void validar(string);
+    public:
+        void setEndereco(string);
+        string getEndereco() const;
+};
+
+inline string Endereco::getEndereco() const{
+    return endereco;
+};
 
 #endif

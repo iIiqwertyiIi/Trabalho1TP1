@@ -45,4 +45,24 @@ class TUCodigo {
         int run();
 };
 
+class TUEndereco {
+    private:
+        inline static const string ENDERECO_VALIDO = "Rua Que eu Quiser";
+        inline static const string ENDERECO_INVALIDO_1 = "Rua  Com 2 Espaços";
+        inline static const string ENDERECO_INVALIDO_2 = "Rua .. Com 2 Pontos";
+        inline static const string ENDERECO_INVALIDO_3 = "Rua Com Mais de 20 Caracteres";
+        Endereco *endereco;
+        int estado;
+        void setUp();
+        void tearDown();
+        void testarValido();
+        void testarInvalido1();
+        void testarInvalido2();
+        void testarInvalido3();
+    public:
+        static const int SUCESSO = 1;
+        static const int FALHA = 0;
+        int run();
+};
+
 #endif
