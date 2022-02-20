@@ -39,3 +39,42 @@ int TUDescricao::run() {
     tearDown();
     return estado;
 };
+
+void TUIdioma::setUp() {
+    idioma = new Idioma();
+    estado = SUCESSO;
+};
+
+void TUIdioma::tearDown() {
+    delete idioma;
+};
+
+void TUIdioma::testarValido() {
+    try {
+        idioma->setIdioma(IDIOMA_VALIDO);
+        if (idioma->getIdioma() != IDIOMA_VALIDO) estado = FALHA;
+    }
+
+    catch (invalid_argument &excessao) {
+        estado = FALHA;
+    };
+};
+
+void TUIdioma::testarInvalido() {
+    try {
+        idioma->setIdioma(IDIOMA_INVALIDO);
+        estado = FALHA;
+    }
+
+    catch (invalid_argument &excessao) {
+        if (idioma->getIdioma() == IDIOMA_INVALIDO) estado = FALHA;
+    };
+};
+
+int TUIdioma::run() {
+    setUp();
+    testarValido();
+    testarInvalido();
+    tearDown();
+    return estado;
+};

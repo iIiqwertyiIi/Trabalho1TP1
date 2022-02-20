@@ -23,4 +23,20 @@ class Descricao {
 
 inline string Descricao::getDescricao() const { return descricao; };
 
+class Idioma {
+    private:
+        inline static const vector<string> IDIOMAS = {
+            "Inglês", "Chinês", "Mandarim", "Hindi", "Espanhol", 
+            "Francês", "Árabe", "Bengali", "Russo", "Português", "Indonésio"
+        };
+        string idioma;
+        void validar(string);
+
+    public:
+        void setIdioma(string);
+        string getIdioma() const;
+};
+
+inline string Idioma::getIdioma() const { return idioma; };
+
 #endif // DOMAIN_H_INCLUDED
