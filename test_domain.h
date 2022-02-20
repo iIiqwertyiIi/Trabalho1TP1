@@ -26,6 +26,9 @@ class TUCodigo {
         inline static const string CODIGO_VALIDO = "2586719";
         inline static const string CODIGO_INVALIDO_1 = "0000000";
         inline static const string CODIGO_INVALIDO_2 = "2586712";
+        inline static const string CODIGO_INVALIDO_3 = "ASCII34";
+        inline static const string CODIGO_INVALIDO_4 = "258671";
+        inline static const string CODIGO_INVALIDO_5 = "258671938";
         Codigo *codigo;
         int estado;
         void setUp();
@@ -33,6 +36,9 @@ class TUCodigo {
         void testarValido();
         void testarInvalido1();
         void testarInvalido2();
+        void testarInvalido3();
+        void testarInvalido4();
+        void testarInvalido5();
     public:
         static const int SUCESSO = 1;
         static const int FALHA = 0;
