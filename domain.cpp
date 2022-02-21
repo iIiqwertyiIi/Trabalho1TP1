@@ -50,6 +50,8 @@ void Codigo::setCodigo(string codigo)
 
 void Email::validar(string email)
 {
+    cout << "\nTá entrando aqui 1 ";
+
     int i = 0;
     while ((i < email.length()) or (email[i] != '@'))
     {
@@ -75,17 +77,17 @@ void Email::validar(string email)
     if (domain[0] == '.')
         throw invalid_argument("Dominio não pode conter '.' no primeiro caractere");
 
-    for (int i = 0; i < locale.length() - 1; i++)
-    {
-        if ((locale[i] == '.') and (locale[i + 1] == '.'))
-            throw invalid_argument("Parte local não pode conter '.' seguidos");
-    }
+    // for (int i = 0; i < locale.length() - 1; i++)
+    // {
+    //     if ((locale[i] == '.') and (locale[i + 1] == '.'))
+    //         throw invalid_argument("Parte local não pode conter '.' seguidos");
+    // }
 
-    for (int i = 0; i < domain.length() - 1; i++)
-    {
-        if ((domain[i] == '.') and (domain[i + 1] == '.'))
-            throw invalid_argument("Dominio não pode conter '.' seguidos");
-    }
+    // for (int i = 0; i < domain.length() - 1; i++)
+    // {
+    //     if ((domain[i] == '.') and (domain[i + 1] == '.'))
+    //         throw invalid_argument("Dominio não pode conter '.' seguidos");
+    // }
 
     if (!regex_match(locale, regex("[a-zA-Z0-9!#$%&'+-/=?^_`{|}~.]")))
         ;
