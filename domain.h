@@ -53,7 +53,7 @@ class Endereco {
         string getEndereco() const;
 };
 
-inline string Endereco::getEndereco() const{
+inline string Endereco::getEndereco() const {
     return endereco;
 };
 
@@ -70,8 +70,22 @@ class Horario {
         string getHorario() const;
 };
 
-inline string Horario::getHorario() const{
+inline string Horario::getHorario() const {
     return horario;
+};
+
+class Senha {
+    private:
+        inline static const int TAMANHO = 6;
+        string senha;
+        void validar(string);
+    public:
+        void setSenha(string);
+        string getSenha() const;
+};
+
+inline string Senha::getSenha() const {
+    return senha;
 };
 
 #endif

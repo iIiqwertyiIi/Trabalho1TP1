@@ -89,4 +89,30 @@ class TUHorario {
         int run();
 };
 
+class TUSenha {
+    private:
+        inline static const string SENHA_VALIDA = "JIst87";
+        inline static const string SENHA_INVALIDA_1 = "1aA";
+        inline static const string SENHA_INVALIDA_2 = "16bT!y";
+        inline static const string SENHA_INVALIDA_3 = "15aAtA";
+        inline static const string SENHA_INVALIDA_4 = "ATsioE";
+        inline static const string SENHA_INVALIDA_5 = "168ato";
+        inline static const string SENHA_INVALIDA_6 = "168ATO";
+        Senha *senha;
+        int estado;
+        void setUp();
+        void tearDown();
+        void testarValido();
+        void testarInvalido1();
+        void testarInvalido2();
+        void testarInvalido3();
+        void testarInvalido4();
+        void testarInvalido5();
+        void testarInvalido6();
+    public:
+        static const int SUCESSO = 1;
+        static const int FALHA = 0;
+        int run();
+};
+
 #endif

@@ -37,4 +37,12 @@ int main() {
         case TUHorario::FALHA: cout << "FALHA - HORARIO" << endl;
             break;
     };
+
+    TUSenha testeSenha;
+    switch(testeSenha.run()) {
+        case TUSenha::SUCESSO: cout << "SUCESSO - SENHA" << endl;
+            break;
+        case TUSenha::FALHA: cout << "FALHA - SENHA" << endl;
+            break;
+    };
 };

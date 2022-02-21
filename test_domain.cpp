@@ -294,3 +294,109 @@ int TUHorario::run() {
     tearDown();
     return estado;
 };
+
+void TUSenha::setUp() {
+    senha = new Senha();
+    estado = SUCESSO;
+};
+
+void TUSenha::tearDown() {
+    delete senha;
+};
+
+void TUSenha::testarValido() {
+    try {
+        senha->setSenha(SENHA_VALIDA);
+        if (senha->getSenha() != SENHA_VALIDA)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUSenha::testarInvalido1() {
+    try {
+        senha->setSenha(SENHA_INVALIDA_1);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (senha->getSenha() == SENHA_INVALIDA_1)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUSenha::testarInvalido2() {
+    try {
+        senha->setSenha(SENHA_INVALIDA_2);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (senha->getSenha() == SENHA_INVALIDA_2)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUSenha::testarInvalido3() {
+    try {
+        senha->setSenha(SENHA_INVALIDA_3);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (senha->getSenha() == SENHA_INVALIDA_3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUSenha::testarInvalido4() {
+    try {
+        senha->setSenha(SENHA_INVALIDA_4);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (senha->getSenha() == SENHA_INVALIDA_4)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUSenha::testarInvalido5() {
+    try {
+        senha->setSenha(SENHA_INVALIDA_5);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (senha->getSenha() == SENHA_INVALIDA_5)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUSenha::testarInvalido6() {
+    try {
+        senha->setSenha(SENHA_INVALIDA_6);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (senha->getSenha() == SENHA_INVALIDA_6)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUSenha::run() {
+    setUp();
+    testarValido();
+    testarInvalido1();
+    testarInvalido2();
+    testarInvalido3();
+    testarInvalido4();
+    testarInvalido5();
+    testarInvalido6();
+    tearDown();
+    return estado;
+};
