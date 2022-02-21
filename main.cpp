@@ -28,4 +28,12 @@ int main() {
         case TUEndereco::FALHA: cout << "FALHA - ENDERECO" << endl;
             break;
     };
+
+    TUHorario testeHorario;
+    switch(testeHorario.run()) {
+        case TUHorario::SUCESSO: cout << "SUCESSO - HORARIO" << endl;
+            break;
+        case TUHorario::FALHA: cout << "FALHA - HORARIO" << endl;
+            break;
+    };
 };

@@ -29,6 +29,7 @@ inline string Cidade::getCidade() const {
 class Codigo {
     private:
         inline static const string INVALIDO = "0000000";
+        inline static const int TAMANHO = 7;
         string codigo;
         void validar(string);
     public:
@@ -54,6 +55,23 @@ class Endereco {
 
 inline string Endereco::getEndereco() const{
     return endereco;
+};
+
+class Horario {
+    private:
+        inline static const int LIMITE_HORA = 23;
+        inline static const int LIMITE_MINUTO = 59;
+        inline static const string DOIS_PONTOS = ":";
+        inline static const int TAMANHO = 5;
+        string horario;
+        void validar(string);
+    public:
+        void setHorario(string);
+        string getHorario() const;
+};
+
+inline string Horario::getHorario() const{
+    return horario;
 };
 
 #endif
