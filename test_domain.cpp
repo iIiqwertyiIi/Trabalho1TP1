@@ -18,7 +18,7 @@ void TUDescricao::testarValido() {
 
     catch (invalid_argument &excessao) {
         estado = FALHA;
-        cout << "ERRO: " << excessao.what() << endl;
+        cout << excessao.what() << endl;
     };
 };
 
@@ -31,7 +31,7 @@ void TUDescricao::testarInvalido1() {
     catch (invalid_argument &excessao) {
         if (descricao->getDescricao() == DESCRICAO_INVALIDA1)
             estado = FALHA;
-        cout << "ERRO: " << excessao.what() << endl;
+        cout << excessao.what() << endl;
     };
 };
 
@@ -44,7 +44,7 @@ void TUDescricao::testarInvalido2() {
     catch (invalid_argument &excessao) {
         if (descricao->getDescricao() == DESCRICAO_INVALIDA2)
             estado = FALHA;
-        cout << "ERRO: " << excessao.what() << endl;
+        cout << excessao.what() << endl;
     };
 };
 
@@ -57,7 +57,7 @@ void TUDescricao::testarInvalido3() {
     catch (invalid_argument &excessao) {
         if (descricao->getDescricao() == DESCRICAO_INVALIDA3)
             estado = FALHA;
-        cout << "ERRO: " << excessao.what() << endl;
+        cout << excessao.what() << endl;
     };
 };
 
@@ -80,51 +80,15 @@ void TUIdioma::tearDown() {
     delete idioma;
 };
 
-void TUIdioma::testarValido1() {
+void TUIdioma::testarValido() {
     try {
-        idioma->setIdioma(IDIOMA_VALIDO1);
-        if (idioma->getIdioma() != IDIOMA_VALIDO1) estado = FALHA;
+        idioma->setIdioma(IDIOMA_VALIDO);
+        if (idioma->getIdioma() != IDIOMA_VALIDO) estado = FALHA;
     }
 
     catch (invalid_argument &excessao) {
         estado = FALHA;
-        cout << "ERRO: " << excessao.what() << endl;
-    };
-};
-
-void TUIdioma::testarValido2() {
-    try {
-        idioma->setIdioma(IDIOMA_VALIDO2);
-        if (idioma->getIdioma() != IDIOMA_VALIDO2) estado = FALHA;
-    }
-
-    catch (invalid_argument &excessao) {
-        estado = FALHA;
-        cout << "ERRO: " << excessao.what() << endl;
-    };
-};
-
-void TUIdioma::testarValido3() {
-    try {
-        idioma->setIdioma(IDIOMA_VALIDO3);
-        if (idioma->getIdioma() != IDIOMA_VALIDO3) estado = FALHA;
-    }
-
-    catch (invalid_argument &excessao) {
-        estado = FALHA;
-        cout << "ERRO: " << excessao.what() << endl;
-    };
-};
-
-void TUIdioma::testarValido4() {
-    try {
-        idioma->setIdioma(IDIOMA_VALIDO4);
-        if (idioma->getIdioma() != IDIOMA_VALIDO4) estado = FALHA;
-    }
-
-    catch (invalid_argument &excessao) {
-        estado = FALHA;
-        cout << "ERRO: " << excessao.what() << endl;
+        cout << excessao.what() << endl;
     };
 };
 
@@ -137,16 +101,13 @@ void TUIdioma::testarInvalido() {
     catch (invalid_argument &excessao) {
         if (idioma->getIdioma() == IDIOMA_INVALIDO)
             estado = FALHA;
-        cout << "ERRO: " << excessao.what() << endl;
+        cout << excessao.what() << endl;
     };
 };
 
 int TUIdioma::run() {
     setUp();
-    testarValido1();
-    testarValido2();
-    testarValido3();
-    testarValido4();
+    testarValido();
     testarInvalido();
     tearDown();
     return estado;

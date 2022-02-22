@@ -12,7 +12,7 @@ using namespace std;
 
 class Descricao {
     private:
-        static const int LIMITE = 30;
+        static const int TAMANHO = 30;
         string descricao;
         void validar(string);
 

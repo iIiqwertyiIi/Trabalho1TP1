@@ -2,12 +2,12 @@
 
 
 void Descricao::validar(string descricao) {
-    if ((descricao.length() > LIMITE) || (descricao.find("  ") != std::string::npos)
-        || (descricao.find("..") != std::string::npos))
-      
-        throw invalid_argument(descricao + " -> INVÁLIDO");
-
-    else cout << "Tudo certo, descricao válida!" << endl;
+    if (descricao.length() > TAMANHO)
+        throw invalid_argument("Descrição " + descricao + " com tamanho inválido");
+    if (descricao.find("  ") != std::string::npos)
+        throw invalid_argument("Descrição " + descricao + " contém dois espaços consecutivos");
+    if (descricao.find("..") != std::string::npos)
+        throw invalid_argument("Descrição " + descricao + " contém dois pontos consecutivos");
 }
 
 void Descricao::setDescricao(string descricao) {
@@ -17,7 +17,6 @@ void Descricao::setDescricao(string descricao) {
 
 void Idioma::validar(string idioma) {
     bool verifica = false;
-    idioma[0] = toupper(idioma[0]);
     
     for (int i = 0; i < IDIOMAS.size(); i++) {
         if (idioma == IDIOMAS[i]) {
@@ -25,9 +24,7 @@ void Idioma::validar(string idioma) {
         }
     }
     
-    if (verifica == false) throw invalid_argument("Idioma " + idioma + " -> INVÁLIDO");
-
-    else cout << "Tudo certo, idioma válido!" << endl;
+    if (verifica == false) throw invalid_argument("Idioma " + idioma + " inválido");
 }
 
 void Idioma::setIdioma(string idioma) {
