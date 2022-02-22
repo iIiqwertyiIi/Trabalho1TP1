@@ -27,4 +27,27 @@ class TUDescricao {
         int run();
 };
 
+class TUIdioma {
+    private:
+        inline static const string IDIOMA_VALIDO1 = "Português";
+        inline static const string IDIOMA_VALIDO2 = "Portugues";
+        inline static const string IDIOMA_VALIDO3 = "português";
+        inline static const string IDIOMA_VALIDO4 = "portugues";
+        inline static const string IDIOMA_INVALIDO = "Everson Zoio";
+        Idioma *idioma;
+        int estado;
+        void setUp();
+        void tearDown();
+        void testarValido1();
+        void testarValido2();
+        void testarValido3();
+        void testarValido4();
+        void testarInvalido();
+
+    public:
+        static const int SUCESSO = 1;
+        static const int FALHA = 0;
+        int run();
+};
+
 #endif

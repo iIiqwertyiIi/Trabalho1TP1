@@ -13,4 +13,12 @@ int main() {
         case TUDescricao::FALHA: cout << "FALHA - DESCRICAO" << endl;
             break;
     };
+
+    TUIdioma testeIdioma;
+    switch(testeIdioma.run()) {
+        case TUIdioma::SUCESSO: cout << "SUCESSO - IDIOMA" << endl;
+            break;
+        case TUIdioma::FALHA: cout << "FALHA - IDIOMA" << endl;
+            break;
+    };
 };
