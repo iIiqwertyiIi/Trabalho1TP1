@@ -1,4 +1,3 @@
-#include <iostream>
 #include "domain.h"
 #include "test_domain.h"
 
@@ -12,12 +11,28 @@ int main() {
         case TUCidade::FALHA: cout << "FALHA - CIDADE" << endl;
             break;
     };
-
+    
     TUCodigo testeB;
     switch(testeB.run()) {
         case TUCodigo::SUCESSO: cout << "SUCESSO - CODIGO" << endl;
             break;
         case TUCodigo::FALHA: cout << "FALHA - CODIGO" << endl;
+            break;
+    };
+    
+    TUDescricao testeDescricao;
+    switch(testeDescricao.run()) {
+        case TUDescricao::SUCESSO: cout << "SUCESSO - DESCRICAO" << endl;
+            break;
+        case TUDescricao::FALHA: cout << "FALHA - DESCRICAO" << endl;
+            break;
+    };
+    
+    TUIdioma testeIdioma;
+    switch(testeIdioma.run()) {
+        case TUIdioma::SUCESSO: cout << "SUCESSO - IDIOMA" << endl;
+            break;
+        case TUIdioma::FALHA: cout << "FALHA - IDIOMA" << endl;
             break;
     };
 };
