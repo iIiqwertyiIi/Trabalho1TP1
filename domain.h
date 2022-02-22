@@ -43,9 +43,7 @@ inline string Codigo::getCodigo() const {
 
 class Endereco {
     private:
-        inline static const int LIMITE = 20;
-        inline static const string ESPACO = " ";
-        inline static const string PONTO = ".";
+        inline static const int TAMANHO_MAX = 20;
         string endereco;
         void validar(string);
     public:

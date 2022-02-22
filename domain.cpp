@@ -41,16 +41,12 @@ void Codigo::setCodigo(string codigo) {
 };
 
 void Endereco::validar(string endereco) {
-    if (endereco.length() > LIMITE)
+    if (endereco.length() > TAMANHO_MAX)
         throw invalid_argument("Endereço " + endereco + " maior que o limite de caracteres");
-    if (endereco.length() > 1) {
-        for (int i = 1; i < endereco.length(); i++) {
-            if (endereco[i] == ESPACO[0] && endereco[i] == endereco[i - 1])
-                throw invalid_argument("Endereço " + endereco + " contém dois espaços consecutivos");
-            else if (endereco[i] == PONTO[0] && endereco[i] == endereco[i - 1])
-                throw invalid_argument("Endereço " + endereco + " contém dois pontos consecutivos");
-        };
-    };
+    if (endereco.find("  ") != std::string::npos)
+        throw invalid_argument("Endereço " + endereco + " contém dois espaços consecutivos");
+    if (endereco.find("..") != std::string::npos)
+        throw invalid_argument("Endereço " + endereco + " contém dois pontos consecutivos");
 };
 
 void Endereco::setEndereco(string endereco) {
