@@ -2,10 +2,10 @@
 
 
 void Descricao::validar(string descricao) {
-    if (descricao.length() > LIMITE) throw invalid_argument("Descrição inválida");
-}
+    if ((descricao.length() > LIMITE) || (descricao.find("  ") != std::string::npos)
+        || (descricao.find("..") != std::string::npos))
+      
+        throw invalid_argument(descricao + " -> INVÁLIDO");
 
-void Descricao::setDescricao(string descricao) {
-    validar(descricao);
-    this->descricao = descricao;
+    else cout << "Tudo certo, descricao válida!" << endl;
 }

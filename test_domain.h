@@ -9,13 +9,17 @@ using namespace std;
 class TUDescricao {
     private:
         inline static const string DESCRICAO_VALIDA = "Descricão válida";
-        inline static const string DESCRICAO_INVALIDA = "Aqui tem um exemplo de descricão inválida";
+        inline static const string DESCRICAO_INVALIDA1 = "Descricao  inválida";
+        inline static const string DESCRICAO_INVALIDA2 = "Descricao inválida..";
+        inline static const string DESCRICAO_INVALIDA3 = "Essa descrição aqui será absurdamente inválida";
         Descricao *descricao;
         int estado;
         void setUp();
         void tearDown();
         void testarValido();
-        void testarInvalido();
+        void testarInvalido1();
+        void testarInvalido2();
+        void testarInvalido3();
 
     public:
         static const int SUCESSO = 1;

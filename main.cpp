@@ -6,8 +6,8 @@
 using namespace std;
 
 int main() {
-    TUDescricao teste1;
-    switch(teste1.run()) {
+    TUDescricao testeDescricao;
+    switch(testeDescricao.run()) {
         case TUDescricao::SUCESSO: cout << "SUCESSO - DESCRICAO" << endl;
             break;
         case TUDescricao::FALHA: cout << "FALHA - DESCRICAO" << endl;

@@ -18,24 +18,55 @@ void TUDescricao::testarValido() {
 
     catch (invalid_argument &excessao) {
         estado = FALHA;
+        cout << "ERRO: " << excessao.what() << endl;
     };
 };
 
-void TUDescricao::testarInvalido() {
+void TUDescricao::testarInvalido1() {
     try {
-        descricao->setDescricao(DESCRICAO_INVALIDA);
+        descricao->setDescricao(DESCRICAO_INVALIDA1);
         estado = FALHA;
     }
 
     catch (invalid_argument &excessao) {
-        if (descricao->getDescricao() == DESCRICAO_INVALIDA) estado = FALHA;
+        if (descricao->getDescricao() == DESCRICAO_INVALIDA1)
+            estado = FALHA;
+        cout << "ERRO: " << excessao.what() << endl;
+    };
+};
+
+void TUDescricao::testarInvalido2() {
+    try {
+        descricao->setDescricao(DESCRICAO_INVALIDA2);
+        estado = FALHA;
+    }
+
+    catch (invalid_argument &excessao) {
+        if (descricao->getDescricao() == DESCRICAO_INVALIDA2)
+            estado = FALHA;
+        cout << "ERRO: " << excessao.what() << endl;
+    };
+};
+
+void TUDescricao::testarInvalido3() {
+    try {
+        descricao->setDescricao(DESCRICAO_INVALIDA3);
+        estado = FALHA;
+    }
+
+    catch (invalid_argument &excessao) {
+        if (descricao->getDescricao() == DESCRICAO_INVALIDA3)
+            estado = FALHA;
+        cout << "ERRO: " << excessao.what() << endl;
     };
 };
 
 int TUDescricao::run() {
     setUp();
     testarValido();
-    testarInvalido();
+    testarInvalido1();
+    testarInvalido2();
+    testarInvalido3();
     tearDown();
     return estado;
 };
