@@ -20,8 +20,7 @@ void Codigo::validar(string codigo) {
     int verificador = 0;
     if (codigo.length() != 7)
         throw invalid_argument("Código " + codigo + " com tamanho diferente de 7");
-    for (int i = 0; i < codigo.length(); i++)
-    {
+    for (int i = 0; i < codigo.length(); i++) {
         int a = codigo[i];
         if (a < 48 || a > 57)
             throw invalid_argument("Código " + codigo + " com dígitos diferentes de números");
