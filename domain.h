@@ -74,9 +74,7 @@ inline int Duracao::getDuracao() const {
 
 class Endereco {
     private:
-        inline static const int LIMITE = 20;
-        inline static const string ESPACO = " ";
-        inline static const string PONTO = ".";
+        inline static const int TAMANHO_MAX = 20;
         string endereco;
         void validar(string);
     public:
@@ -101,16 +99,17 @@ class Horario {
         string getHorario() const;
 };
 
-inline string Horario::getHorario() const{
+inline string Horario::getHorario() const {
     return horario;
 };
 
 class Idioma {
     private:
         inline static const vector<string> IDIOMAS = {
-            "Inglês", "Ingles", "Chinês", "Chines", "Mandarim", "Hindi", "Espanhol", 
-            "Francês", "Frances", "Árabe", "Arabe", "Bengali", "Russo",
-            "Português", "Portugues", "Indonésio", "Indonesio"
+            "Inglês", "Ingles", "Chinês", "Chines", "Mandarim",
+            "Hindi", "Espanhol", "Francês", "Frances", "Árabe",
+            "Arabe", "Bengali", "Russo", "Português", "Portugues",
+            "Indonésio", "Indonesio"
         };
         string idioma;
         void validar(string);
@@ -122,6 +121,20 @@ class Idioma {
 
 inline string Idioma::getIdioma() const {
   return idioma;
+};
+
+class Senha {
+    private:
+        inline static const int TAMANHO = 6;
+        string senha;
+        void validar(string);
+    public:
+        void setSenha(string);
+        string getSenha() const;
+};
+
+inline string Senha::getSenha() const {
+    return senha;
 };
 
 #endif

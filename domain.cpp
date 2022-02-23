@@ -1,11 +1,11 @@
 #include "domain.h"
 
 void Cidade::validar(string cidade) {
-    int valido = 0;
+    bool valido = false;
     for (int i = 0; i < CIDADES.size(); i++)
         if (cidade == CIDADES[i])
-            valido = 1;
-    if (valido == 0)
+            valido = true;
+    if (valido == false)
         throw invalid_argument("Cidade " + cidade + " inválida");
 };
 
@@ -19,7 +19,7 @@ void Codigo::validar(string codigo) {
     int soma = 0;
     int verificador = 0;
     if (codigo.length() != TAMANHO)
-        throw invalid_argument("Código " + codigo + " com tamanho diferente de 7");
+        throw invalid_argument("Código " + codigo + " com tamanho inválido");
     for (int i = 0; i < codigo.length(); i++) {
         int a = codigo[i];
         if (a < 48 || a > 57)
@@ -69,17 +69,12 @@ void Duracao::setDuracao(int duracao) {
 };
 
 void Endereco::validar(string endereco) {
-    vector<int> array = {};
-    if (endereco.length() > LIMITE)
-        throw invalid_argument("Endereço " + endereco + " maior que o limite");
-    if (endereco.length() > 1) {
-        for (int i = 1; i < endereco.length(); i++) {
-            if (endereco[i] == ESPACO[0] && endereco[i] == endereco[i - 1])
-                throw invalid_argument("Endereço " + endereco + " contém dois espaços consecutivos");
-            else if (endereco[i] == PONTO[0] && endereco[i] == endereco[i - 1])
-                throw invalid_argument("Endereço " + endereco + " contém dois pontos consecutivos");
-        };
-    };
+    if (endereco.length() > TAMANHO_MAX)
+        throw invalid_argument("Endereço " + endereco + " maior que o limite de caracteres");
+    if (endereco.find("  ") != std::string::npos)
+        throw invalid_argument("Endereço " + endereco + " contém dois espaços consecutivos");
+    if (endereco.find("..") != std::string::npos)
+        throw invalid_argument("Endereço " + endereco + " contém dois pontos consecutivos");
 };
 
 void Endereco::setEndereco(string endereco) {
@@ -89,7 +84,7 @@ void Endereco::setEndereco(string endereco) {
 
 void Horario::validar(string horario) {
     if (horario.length() != TAMANHO)
-        throw invalid_argument("Horário " + horario + " tem formato inválido");
+        throw invalid_argument("Horário " + horario + " tem tamanho inválido");
     for (int i = 0; i < horario.length(); i++) {
         int a = horario[i];
         if (i == 2 && horario[i] != DOIS_PONTOS[0])
@@ -123,3 +118,38 @@ void Idioma::setIdioma(string idioma) {
     this->idioma = idioma;
 };
 
+void Senha::validar(string senha) {
+    vector<char> array {};
+    bool maiuscula = false;
+    bool minuscula = false;
+    bool digito = false;
+    if (senha.length() != TAMANHO)
+        throw invalid_argument("Senha " + senha + " tem tamanho inválido");
+    for (int i = 0; i < senha.length(); i++) {
+        int a = senha[i];
+        if (a > 47 && a < 58 && digito == false)
+            digito = true;
+        if (a > 64 && a < 91 && maiuscula == false)
+            maiuscula = true;
+        if (a > 96 && a < 123 && minuscula == false)
+            minuscula = true;
+        if ((a < 48 || a > 57) && (a < 65 || a > 90) && (a < 97 || a > 122))
+            throw invalid_argument("Senha " + senha + " tem caractere inválido");
+        for (int j = 0; j < array.size(); j++) {
+            if (senha[i] == array[j])
+                throw invalid_argument("Senha " + senha + " não pode ter caracteres repetidos");
+        };
+        array.push_back(senha[i]);
+    };
+    if (digito == false)
+        throw invalid_argument("Senha " + senha + " precisa ter um dígito");
+    if (maiuscula == false)
+        throw invalid_argument("Senha " + senha + " precisa ter uma letra maiúscula");
+    if (minuscula == false)
+        throw invalid_argument("Senha " + senha + " precisa ter uma letra minúscula");
+};
+
+void Senha::setSenha(string senha) {
+    validar(senha);
+    this->senha = senha;
+};
