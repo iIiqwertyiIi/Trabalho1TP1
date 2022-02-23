@@ -1,11 +1,7 @@
 #include "domain.h"
-#include <regex>
-#include <string>
 #include <ctype.h>
-#include <iostream>
 
-void Cidade::validar(string cidade)
-{
+void Cidade::validar(string cidade) {
     int valido = 0;
     for (int i = 0; i < CIDADES.size(); i++)
         if (cidade == CIDADES[i])
@@ -14,21 +10,18 @@ void Cidade::validar(string cidade)
         throw invalid_argument("Cidade " + cidade + " inválida");
 };
 
-void Cidade::setCidade(string cidade)
-{
+void Cidade::setCidade(string cidade) {
     validar(cidade);
     this->cidade = cidade;
 };
 
-void Codigo::validar(string codigo)
-{
+void Codigo::validar(string codigo) {
     vector<int> array = {};
     int soma = 0;
     int verificador = 0;
     if (codigo.length() != 7)
         throw invalid_argument("Código " + codigo + " com tamanho diferente de 7");
-    for (int i = 0; i < codigo.length(); i++)
-    {
+    for (int i = 0; i < codigo.length(); i++) {
         int a = codigo[i];
         if (a < 48 || a > 57)
             throw invalid_argument("Código " + codigo + " com dígitos diferentes de números");
@@ -43,74 +36,46 @@ void Codigo::validar(string codigo)
         throw invalid_argument("Código " + codigo + " com verificador errado");
 };
 
-void Codigo::setCodigo(string codigo)
-{
+void Codigo::setCodigo(string codigo) {
     validar(codigo);
     this->codigo = codigo;
 };
 
-void Email::validar(string email)
-{
+void Email::validar(string email) {
     int position = 0;
-    for (int i = 0; i < email.length(); i++)
-    {
-        if (email[i] == '@')
-        {
+    for (int i = 0; i < email.length(); i++) {
+        if (email[i] == '@') {
             position = i;
             break;
-        }
-    }
+        };
+    };
     if ((position == 0) or (position == email.length()))
-    {
         throw invalid_argument("Formato invalido");
-    }
-
     string locale = email.substr(0, position);
     string domain = email.substr(position + 1, -1);
-
     if (locale.length() > 64)
         throw invalid_argument("Parte local precisa ter no máximo 64 caracteres");
-
     if (domain.length() > 253)
         throw invalid_argument("Domínio precisa ter no máximo 253 caracteres");
-
     if ((locale[0] == '.') or (locale.back() == '.'))
         throw invalid_argument("Parte local não pode conter '.' no primeiro ou ultimo caractere");
-
     if (domain[0] == '.')
         throw invalid_argument("Dominio não pode conter '.' no primeiro caractere");
-
     for (int i = 0; i < locale.length() - 1; i++)
-    {
         if ((locale[i] == '.') and (locale[i + 1] == '.'))
             throw invalid_argument("Parte local não pode conter '.' seguidos");
-    }
-
     for (int i = 0; i < domain.length() - 1; i++)
-    {
         if ((domain[i] == '.') and (domain[i + 1] == '.'))
             throw invalid_argument("Dominio não pode conter '.' seguidos");
-    }
-
     for (int i = 0; i < domain.length(); i++)
-    {
         if ((!isalpha(domain[i]) and (!isdigit(domain[i])) and (domain[i] != '-') and (domain[i] != '.')))
-        {
             throw invalid_argument("Dominio contém caracteres inválidos");
-        }
-    }
-
     for (int i = 0; i < locale.length(); i++)
-    {
         if ((!isalpha(locale[i]) and (!isdigit(locale[i])) and (locale[i] != '!') and (locale[i] != '#') and (locale[i] != '-') and (locale[i] != '.') and (locale[i] != '$') and (locale[i] != '%') and (locale[i] != '&') and (int(locale[i]) != 39) and (locale[i] != '*') and (locale[i] != '+') and (locale[i] != '/') and (locale[i] != '=') and (locale[i] != '?') and (locale[i] != '^') and (locale[i] != '_') and (locale[i] != '`') and (locale[i] != '{') and (locale[i] != '|') and (locale[i] != '}') and (locale[i] != '~')))
-        {
             throw invalid_argument("Parte local contém caracteres inválidos");
-        }
-    }
 };
 
-void Email::setEmail(string email)
-{
+void Email::setEmail(string email) {
     validar(email);
     this->email = email;
 };
