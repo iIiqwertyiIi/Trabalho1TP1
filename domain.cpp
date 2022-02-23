@@ -41,6 +41,53 @@ void Codigo::setCodigo(string codigo) {
     this->codigo = codigo;
 };
 
+void Data::validar(string data) {
+    int dia, ano;
+    string mes;
+    bool verifica_dia = false;
+    bool verifica_mes = false;
+    if (data.length() != TAMANHO)
+        throw invalid_argument("Data " + data + " inválida");
+    for (int i = 0; i < data.length(); i++) {
+        int a = data[i];
+        if (i < 2 && (a < 48 || a > 57))
+            throw invalid_argument("Data " + data + " tem dia não numérico");
+        if ((i == 2 || i == 6) && a != 45)
+            throw invalid_argument("Data " + data + " tem formato inválido");
+        if ((i > 2 && i < 6) && (a < 65 || a > 90) && (a < 97 || a > 122))
+            throw invalid_argument("Data " + data + " tem mês não alfabético");
+        if (i > 6  && (a < 48 || a > 57))
+            throw invalid_argument("Data " + data + " tem ano não numérico");
+    };
+    dia = stoi(data.substr(0, 2));
+    mes = data.substr(3, 3);
+    ano = stoi(data.substr(7, 4));
+    for (int j = 0; j < MESES.size(); j++)
+        if (mes == MESES[j])
+            verifica_mes = true;
+    if (verifica_mes == false)
+        throw invalid_argument("Data " + data + " tem mês inválido");
+    if (ano < 2000 && ano > 9999)
+        throw invalid_argument("Data " + data + " tem ano inválido");
+    if (ano >= 2000 && ano <= 9999) {
+        if ((dia >= 1 && dia <= 31) && (mes == "Jan" || mes == "Mar" || mes == "Mai" || mes == "Jul" || mes == "Ago" || mes == "Out" || mes == "Dez"))
+            verifica_dia = true;
+        else if ((dia >= 1 && dia <= 30) && (mes == "Abr" || mes == "Jun" || mes == "Set" || mes == "Nov"))
+            verifica_dia = true;
+        else if ((dia >= 1 && dia <= 28) && (mes == "Fev"))
+            verifica_dia = true;
+        else if ((dia == 29 && mes == "Fev") && (ano % 400 == 0 || (ano % 4 == 0 && ano % 100 != 0)))
+            verifica_dia = true;
+    };
+    if (verifica_dia == false)
+        throw invalid_argument("Data " + data + " com dia inválido");
+};
+
+void Data::setData(string data) {
+    validar(data);
+    this->data = data;
+};
+
 void Descricao::validar(string descricao) {
     if (descricao.length() > TAMANHO)
         throw invalid_argument("Descrição " + descricao + " com tamanho inválido");

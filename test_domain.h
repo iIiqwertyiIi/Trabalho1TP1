@@ -172,6 +172,36 @@ class TUIdioma {
         int run();
 };
 
+class TUData {
+    private:
+        inline static const string DATA_VALIDA = "22-Fev-2022";
+        inline static const string DATA_INVALIDA_1 = "22-";
+        inline static const string DATA_INVALIDA_2 = "AT-Fev-2022";
+        inline static const string DATA_INVALIDA_3 = "22/Fev/2022";
+        inline static const string DATA_INVALIDA_4 = "22-132-2022";
+        inline static const string DATA_INVALIDA_5 = "22-Fev-ADBA";
+        inline static const string DATA_INVALIDA_6 = "22-Aba-2022";
+        inline static const string DATA_INVALIDA_7 = "22-Fev-1900";
+        inline static const string DATA_INVALIDA_8 = "35-Jan-2022";
+        Data *data;
+        int estado;
+        void setUp();
+        void tearDown();
+        void testarValido();
+        void testarInvalido1();
+        void testarInvalido2();
+        void testarInvalido3();
+        void testarInvalido4();
+        void testarInvalido5();
+        void testarInvalido6();
+        void testarInvalido7();
+        void testarInvalido8();
+    public:
+        static const int SUCESSO = 1;
+        static const int FALHA = 0;
+        int run();
+};
+
 class TUSenha {
     private:
         inline static const string SENHA_VALIDA = "JIst87";
