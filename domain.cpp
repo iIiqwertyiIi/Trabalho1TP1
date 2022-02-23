@@ -54,6 +54,25 @@ void Descricao::setDescricao(string descricao) {
     this->descricao = descricao;
 };
 
+void Endereco::validar(string endereco) {
+    vector<int> array = {};
+    if (endereco.length() > LIMITE)
+        throw invalid_argument("Endereço " + endereco + " maior que o limite");
+    if (endereco.length() > 1) {
+        for (int i = 1; i < endereco.length(); i++) {
+            if (endereco[i] == ESPACO[0] && endereco[i] == endereco[i - 1])
+                throw invalid_argument("Endereço " + endereco + " contém dois espaços consecutivos");
+            else if (endereco[i] == PONTO[0] && endereco[i] == endereco[i - 1])
+                throw invalid_argument("Endereço " + endereco + " contém dois pontos consecutivos");
+        };
+    };
+};
+
+void Endereco::setEndereco(string endereco) {
+    validar(endereco);
+    this->endereco = endereco;
+};
+
 void Idioma::validar(string idioma) {
     bool verifica = false;
     for (int i = 0; i < IDIOMAS.size(); i++) {

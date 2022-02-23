@@ -206,6 +206,73 @@ int TUDescricao::run() {
     return estado;
 };
 
+void TUEndereco::setUp() {
+    endereco = new Endereco();
+    estado = SUCESSO;
+};
+
+void TUEndereco::tearDown() {
+    delete endereco;
+};
+
+void TUEndereco::testarValido() {
+    try {
+        endereco->setEndereco(ENDERECO_VALIDO);
+        if (endereco->getEndereco() != ENDERECO_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEndereco::testarInvalido1() {
+    try {
+        endereco->setEndereco(ENDERECO_INVALIDO_1);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (endereco->getEndereco() == ENDERECO_INVALIDO_1)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEndereco::testarInvalido2() {
+    try {
+        endereco->setEndereco(ENDERECO_INVALIDO_2);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (endereco->getEndereco() == ENDERECO_INVALIDO_2)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEndereco::testarInvalido3() {
+    try {
+        endereco->setEndereco(ENDERECO_INVALIDO_3);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (endereco->getEndereco() == ENDERECO_INVALIDO_3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUEndereco::run() {
+    setUp();
+    testarValido();
+    testarInvalido1();
+    testarInvalido2();
+    testarInvalido3();
+    tearDown();
+    return estado;
+};
+
 void TUIdioma::setUp() {
     idioma = new Idioma();
     estado = SUCESSO;
