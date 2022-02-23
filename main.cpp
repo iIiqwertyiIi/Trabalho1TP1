@@ -19,8 +19,9 @@ int main() {
             break;
         case TUCodigo::FALHA: cout << "FALHA - CODIGO" << endl;
             break;
+
     };
-    
+
     TUDescricao testeDescricao;
     switch (testeDescricao.run()) {
         case TUDescricao::SUCESSO: cout << "SUCESSO - DESCRICAO" << endl;
@@ -74,6 +75,14 @@ int main() {
         case TUIdioma::SUCESSO: cout << "SUCESSO - IDIOMA" << endl;
             break;
         case TUIdioma::FALHA: cout << "FALHA - IDIOMA" << endl;
+            break;
+    };
+    
+    TUNota testeNota;
+    switch (testeNota.run()) {
+        case TUNota::SUCESSO: cout << "SUCESSO - NOTA" << endl;
+            break;
+        case TUNota::FALHA: cout << "FALHA - DURAÇÃO" << endl;
             break;
     };
 

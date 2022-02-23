@@ -192,17 +192,30 @@ void Horario::setHorario(string horario) {
 
 void Idioma::validar(string idioma) {
     bool verifica = false;
-    for (int i = 0; i < IDIOMAS.size(); i++) {
+    for (int i = 0; i < IDIOMAS.size(); i++)
         if (idioma == IDIOMAS[i])
             verifica = true;
-    };
-    if (verifica == false) 
+    if (verifica == false)
         throw invalid_argument("Idioma " + idioma + " inválido");
 };
 
 void Idioma::setIdioma(string idioma) {
     validar(idioma);
     this->idioma = idioma;
+};
+
+void Nota::validar(int nota) {
+    bool valido = false;
+    for (int i = 0; i < NOTAS.size(); i++)
+        if (nota == NOTAS[i])
+            valido = true;
+    if (valido == false)
+        throw invalid_argument("Nota " + nota + " inválida - necessário que seja um dos valores: [0, 1, 2, 3, 4, 5]");
+};
+
+void Nota::setNota(int nota) {
+    validar(nota);
+    this->nota = nota;
 };
 
 void Senha::validar(string senha) {

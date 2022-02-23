@@ -678,7 +678,8 @@ void TUIdioma::tearDown() {
 void TUIdioma::testarValido() {
     try {
         idioma->setIdioma(IDIOMA_VALIDO);
-        if (idioma->getIdioma() != IDIOMA_VALIDO) estado = FALHA;
+        if (idioma->getIdioma() != IDIOMA_VALIDO)
+            estado = FALHA;
     }
     catch (invalid_argument &excessao) {
         estado = FALHA;
@@ -691,7 +692,6 @@ void TUIdioma::testarInvalido() {
         idioma->setIdioma(IDIOMA_INVALIDO);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (idioma->getIdioma() == IDIOMA_INVALIDO)
             estado = FALHA;
@@ -700,6 +700,47 @@ void TUIdioma::testarInvalido() {
 };
 
 int TUIdioma::run() {
+    setUp();
+    testarValido();
+    testarInvalido();
+    tearDown();
+    return estado;
+};
+
+void TUNota::setUp() {
+    nota = new Nota();
+    estado = SUCESSO;
+};
+
+void TUNota::tearDown() {
+    delete nota;
+};
+
+void TUNota::testarValido() {
+    try {
+        nota->setNota(NOTA_VALIDA);
+        if (nota->getNota() != NOTA_VALIDA)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUNota::testarInvalido() {
+    try {
+        nota->setNota(NOTA_INVALIDA);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (nota->getNota() == NOTA_INVALIDA)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUNota::run() {
     setUp();
     testarValido();
     testarInvalido();

@@ -64,14 +64,13 @@ class Descricao {
         static const int TAMANHO = 30;
         string descricao;
         void validar(string);
-
     public:
         void setDescricao(string);
         string getDescricao() const;
 };
 
 inline string Descricao::getDescricao() const {
-  return descricao;
+    return descricao;
 };
 
 class Duracao {
@@ -143,14 +142,27 @@ class Idioma {
         };
         string idioma;
         void validar(string);
-  
     public:
         void setIdioma(string);
         string getIdioma() const;
 };
 
 inline string Idioma::getIdioma() const {
-  return idioma;
+    return idioma;
+};
+
+class Nota {
+    private:
+        inline static const vector<int> NOTAS = {0, 1, 2, 3, 4, 5};
+        int nota;
+        void validar(int);
+    public:
+        void setNota(int);
+        int getNota() const;
+};
+
+inline int Nota::getNota() const {
+    return nota;
 };
 
 class Senha {
