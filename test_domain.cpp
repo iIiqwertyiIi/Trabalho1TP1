@@ -262,7 +262,6 @@ void TUData::testarValido() {
         data->setData(DATA_VALIDA);
         if (data->getData() != DATA_VALIDA) estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         estado = FALHA;
         cout << excessao.what() << endl;
@@ -271,12 +270,11 @@ void TUData::testarValido() {
 
 void TUData::testarInvalido1() {
     try {
-        data->setData(DATA_INVALIDA1);
+        data->setData(DATA_INVALIDA_1);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
-        if (data->getData() == DATA_INVALIDA1)
+        if (data->getData() == DATA_INVALIDA_1)
             estado = FALHA;
         cout << excessao.what() << endl;
     };
@@ -284,12 +282,11 @@ void TUData::testarInvalido1() {
 
 void TUData::testarInvalido2() {
     try {
-        data->setData(DATA_INVALIDA2);
+        data->setData(DATA_INVALIDA_2);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
-        if (data->getData() == DATA_INVALIDA2)
+        if (data->getData() == DATA_INVALIDA_2)
             estado = FALHA;
         cout << excessao.what() << endl;
     };
@@ -297,12 +294,71 @@ void TUData::testarInvalido2() {
 
 void TUData::testarInvalido3() {
     try {
-        data->setData(DATA_INVALIDA3);
+        data->setData(DATA_INVALIDA_3);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
-        if (data->getData() == DATA_INVALIDA3)
+        if (data->getData() == DATA_INVALIDA_3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido4() {
+    try {
+        data->setData(DATA_INVALIDA_4);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA_4)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido5() {
+    try {
+        data->setData(DATA_INVALIDA_5);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA_5)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido6() {
+    try {
+        data->setData(DATA_INVALIDA_6);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA_6)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido7() {
+    try {
+        data->setData(DATA_INVALIDA_7);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA_7)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido8() {
+    try {
+        data->setData(DATA_INVALIDA_8);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA_8)
             estado = FALHA;
         cout << excessao.what() << endl;
     };
@@ -314,6 +370,11 @@ int TUData::run() {
     testarInvalido1();
     testarInvalido2();
     testarInvalido3();
+    testarInvalido4();
+    testarInvalido5();
+    testarInvalido6();
+    testarInvalido7();
+    testarInvalido8();
     tearDown();
     return estado;
 };
