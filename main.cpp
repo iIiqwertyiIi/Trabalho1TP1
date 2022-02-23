@@ -37,7 +37,7 @@ int main() {
     };
 
     TUData testeData;
-    switch(testeData.run()) {
+    switch (testeData.run()) {
         case TUData::SUCESSO: cout << "SUCESSO - DATA" << endl;
             break;
         case TUData::FALHA: cout << "FALHA - DATA" << endl;
