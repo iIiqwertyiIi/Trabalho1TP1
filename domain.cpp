@@ -52,7 +52,7 @@ void Duracao::validar(int duracao)
         if (duracao == DURACOES[i])
             valido = 1;
     if (valido == 0)
-        throw invalid_argument("Duração inválida");
+        throw invalid_argument("Duração inválida - necessário que seja um dos valores: (30, 60, 90, 120, 180)");
 };
 
 void Duracao::setDuracao(int duracao)

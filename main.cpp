@@ -28,8 +28,8 @@ int main()
         break;
     };
 
-    TUDuracao testeC;
-    switch (testeC.run())
+    TUDuracao testeDuracao;
+    switch (testeDuracao.run())
     {
     case TUDuracao::SUCESSO:
         cout << "SUCESSO - DURACAO" << endl;
