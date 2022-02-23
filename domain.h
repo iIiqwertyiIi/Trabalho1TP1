@@ -42,7 +42,6 @@ inline string Codigo::getCodigo() const {
 
 class Email {
     private:
-        inline static const string INVALIDO = ".local@dominio.com";
         string email;
         void validar(string);
     public:
