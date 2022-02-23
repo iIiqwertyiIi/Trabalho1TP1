@@ -14,7 +14,8 @@ class Cidade {
             "Hong Kong", "Bangkok", "Macau", "Singapura",
             "Londres", "Paris", "Dubai", "Delhi", "Istambul",
             "Kuala Lumpur", "Nova Iorque", "Antalya", "Mumbai",
-            "Shenzhen", "Phuket"};
+            "Shenzhen", "Phuket"
+        };
         string cidade;
         void validar(string);
     public:
@@ -57,9 +58,11 @@ inline string Descricao::getDescricao() const {
 class Idioma {
     private:
         inline static const vector<string> IDIOMAS = {
-            "Inglês", "Ingles", "Chinês", "Chines", "Mandarim", "Hindi", "Espanhol",
-            "Francês", "Frances", "Árabe", "Arabe", "Bengali", "Russo",
-            "Português", "Portugues", "Indonésio", "Indonesio"};
+            "Inglês", "Ingles", "Chinês", "Chines", "Mandarim",
+            "Hindi", "Espanhol", "Francês", "Frances", "Árabe",
+            "Arabe", "Bengali", "Russo", "Português", "Portugues",
+            "Indonésio", "Indonesio"
+        };
         string idioma;
         void validar(string);
     public:
