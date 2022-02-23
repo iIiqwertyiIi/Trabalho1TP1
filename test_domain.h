@@ -95,8 +95,9 @@ private:
     inline static const string TITULO_VALIDO = "este e um teste valido.";
     inline static const string TITULO_INVALIDO_1 = "Via  gem com amigos.";
     inline static const string TITULO_INVALIDO_2 = "eraumacasamuitoengracada";
-    inline static const string TITULO_INVALIDO_3 = "foi";
-    inline static const string TITULO_INVALIDO_4 = "Viagem tranquila+";
+    inline static const string TITULO_INVALIDO_3 = "vamosverse da..";
+    inline static const string TITULO_INVALIDO_4 = "foi";
+    inline static const string TITULO_INVALIDO_5 = "Viagem tranquila+";
 
     Titulo *titulo;
     int estado;
