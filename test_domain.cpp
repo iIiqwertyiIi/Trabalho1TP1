@@ -266,6 +266,51 @@ void TUEmail::testarInvalido5()
     };
 };
 
+void TUEmail::testarInvalido6()
+{
+    try
+    {
+        email->setEmail(EMAIL_INVALIDO_6);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao)
+    {
+        if (email->getEmail() == EMAIL_INVALIDO_6)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido7()
+{
+    try
+    {
+        email->setEmail(EMAIL_INVALIDO_7);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao)
+    {
+        if (email->getEmail() == EMAIL_INVALIDO_7)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido8()
+{
+    try
+    {
+        email->setEmail(EMAIL_INVALIDO_8);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao)
+    {
+        if (email->getEmail() == EMAIL_INVALIDO_8)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
 int TUEmail::run()
 {
     setUp();
@@ -275,6 +320,9 @@ int TUEmail::run()
     testarInvalido3();
     testarInvalido4();
     testarInvalido5();
+    testarInvalido6();
+    testarInvalido7();
+    testarInvalido8();
     tearDown();
     return estado;
 };

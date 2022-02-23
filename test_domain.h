@@ -52,14 +52,16 @@ public:
 class TUEmail
 {
 private:
-    inline static const string EMAIL_VALIDO = "local@dominio.com";
-    inline static const string EMAIL_INVALIDO_1 = "local_dominio.org.br";
-    inline static const string EMAIL_INVALIDO_2 = "email-invalido.por!excesso_de_caracteres+precisamos&de=outro#Exemplo@dominio.org.br";
-    inline static const string EMAIL_INVALIDO_3 = ".local@dominio.com";
-    inline static const string EMAIL_INVALIDO_4 = "local.@dominio.com";
-    inline static const string EMAIL_INVALIDO_5 = "lo..cal@dominio.com";
-    inline static const string EMAIL_INVALIDO_6 = "local@email-invalido.por1excesso.deCaracteres-precisamos2de3outro.Exemplo4nesses5caso6oErroEsta7no6Dominio-NaMinhaTerraTemPalmeirasOndeCantaOSabiaAsAvesQueAqui-Gorjeiam.NaoGorgeiam-comoLa-NossoCeuTemMaisEstrelas.NossasVarzeasTemMaisFloresNossosBosquesTemMaisVida.org.br";
-    inline static const string EMAIL_INVALIDO_7 = "local@dominio..com";
+    inline static const string EMAIL_VALIDO = "Locale@dominio.com";
+    inline static const string EMAIL_INVALIDO_1 = "local_dominio2.org.br";
+    inline static const string EMAIL_INVALIDO_2 = "email-invalido.por!excesso_de_caracteres+precisamos&de=outro#Exemplo@dominio3.org.br";
+    inline static const string EMAIL_INVALIDO_3 = ".local@dominio4.com";
+    inline static const string EMAIL_INVALIDO_4 = "local.@dominio5.com";
+    inline static const string EMAIL_INVALIDO_5 = "lo..cal@dominio6.com";
+    inline static const string EMAIL_INVALIDO_6 = "local@email-invalido.por1excesso.deCaracteres-precisamos2de3outro.Exemplo4nesses5caso6oErroEsta7no6Dominio-NaMinhaTerraTemPalmeirasOndeCantaOSabiaAsAvesQueAqui-Gorjeiam.NaoGorgeiam-comoLa-NossoCeuTemMaisEstrelas.NossasVarzeasTemMaisFloresNossosBosquesTemMaisVida7.org.br";
+    inline static const string EMAIL_INVALIDO_7 = "local@dominio8..com";
+    inline static const string EMAIL_INVALIDO_8 = "local@dominio*9.com";
+
     Email *email;
     int estado;
     void setUp();
@@ -70,6 +72,9 @@ private:
     void testarInvalido3();
     void testarInvalido4();
     void testarInvalido5();
+    void testarInvalido6();
+    void testarInvalido7();
+    void testarInvalido8();
 
 public:
     static const int SUCESSO = 1;
