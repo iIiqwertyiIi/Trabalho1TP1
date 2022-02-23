@@ -50,29 +50,29 @@ void Email::validar(string email) {
         };
     };
     if ((position == 0) or (position == email.length()))
-        throw invalid_argument("Formato invalido");
+        throw invalid_argument("Email " + email + " com formato inválido");
     string locale = email.substr(0, position);
     string domain = email.substr(position + 1, -1);
     if (locale.length() > 64)
-        throw invalid_argument("Parte local precisa ter no máximo 64 caracteres");
+        throw invalid_argument("Parte local " + locale + " precisa ter no máximo 64 caracteres");
     if (domain.length() > 253)
-        throw invalid_argument("Domínio precisa ter no máximo 253 caracteres");
+        throw invalid_argument("Domínio " + domain + " precisa ter no máximo 253 caracteres");
     if ((locale[0] == '.') or (locale.back() == '.'))
-        throw invalid_argument("Parte local não pode conter '.' no primeiro ou ultimo caractere");
+        throw invalid_argument("Parte local " + locale + " não pode conter '.' no primeiro ou ultimo caractere");
     if (domain[0] == '.')
-        throw invalid_argument("Dominio não pode conter '.' no primeiro caractere");
+        throw invalid_argument("Dominio " + domain + " não pode conter '.' no primeiro caractere");
     for (int i = 0; i < locale.length() - 1; i++)
         if ((locale[i] == '.') and (locale[i + 1] == '.'))
-            throw invalid_argument("Parte local não pode conter '.' seguidos");
+            throw invalid_argument("Parte local " + locale + " não pode conter '.' seguidos");
     for (int i = 0; i < domain.length() - 1; i++)
         if ((domain[i] == '.') and (domain[i + 1] == '.'))
-            throw invalid_argument("Dominio não pode conter '.' seguidos");
+            throw invalid_argument("Dominio " + domain + " não pode conter '.' seguidos");
     for (int i = 0; i < domain.length(); i++)
         if ((!isalpha(domain[i]) and (!isdigit(domain[i])) and (domain[i] != '-') and (domain[i] != '.')))
-            throw invalid_argument("Dominio contém caracteres inválidos");
+            throw invalid_argument("Dominio " + domain + " contém caracteres inválidos");
     for (int i = 0; i < locale.length(); i++)
         if ((!isalpha(locale[i]) and (!isdigit(locale[i])) and (locale[i] != '!') and (locale[i] != '#') and (locale[i] != '-') and (locale[i] != '.') and (locale[i] != '$') and (locale[i] != '%') and (locale[i] != '&') and (int(locale[i]) != 39) and (locale[i] != '*') and (locale[i] != '+') and (locale[i] != '/') and (locale[i] != '=') and (locale[i] != '?') and (locale[i] != '^') and (locale[i] != '_') and (locale[i] != '`') and (locale[i] != '{') and (locale[i] != '|') and (locale[i] != '}') and (locale[i] != '~')))
-            throw invalid_argument("Parte local contém caracteres inválidos");
+            throw invalid_argument("Parte local " + domain + " contém caracteres inválidos");
 };
 
 void Email::setEmail(string email) {
