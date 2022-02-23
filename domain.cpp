@@ -1,7 +1,6 @@
 #include "domain.h"
 
-void Cidade::validar(string cidade)
-{
+void Cidade::validar(string cidade) {
     int valido = 0;
     for (int i = 0; i < CIDADES.size(); i++)
         if (cidade == CIDADES[i])
@@ -10,14 +9,12 @@ void Cidade::validar(string cidade)
         throw invalid_argument("Cidade " + cidade + " inválida");
 };
 
-void Cidade::setCidade(string cidade)
-{
+void Cidade::setCidade(string cidade) {
     validar(cidade);
     this->cidade = cidade;
 };
 
-void Codigo::validar(string codigo)
-{
+void Codigo::validar(string codigo) {
     vector<int> array = {};
     int soma = 0;
     int verificador = 0;
@@ -39,14 +36,12 @@ void Codigo::validar(string codigo)
         throw invalid_argument("Código " + codigo + " com verificador errado");
 };
 
-void Codigo::setCodigo(string codigo)
-{
+void Codigo::setCodigo(string codigo) {
     validar(codigo);
     this->codigo = codigo;
 };
 
-void Descricao::validar(string descricao)
-{
+void Descricao::validar(string descricao) {
     if (descricao.length() > TAMANHO)
         throw invalid_argument("Descrição " + descricao + " com tamanho inválido");
     if (descricao.find("  ") != std::string::npos)
@@ -55,43 +50,35 @@ void Descricao::validar(string descricao)
         throw invalid_argument("Descrição " + descricao + " contém dois pontos consecutivos");
 };
 
-void Descricao::setDescricao(string descricao)
-{
+void Descricao::setDescricao(string descricao) {
     validar(descricao);
     this->descricao = descricao;
 };
 
-void Idioma::validar(string idioma)
-{
+void Idioma::validar(string idioma) {
     bool verifica = false;
     for (int i = 0; i < IDIOMAS.size(); i++)
-    {
         if (idioma == IDIOMAS[i])
             verifica = true;
-    };
     if (verifica == false)
         throw invalid_argument("Idioma " + idioma + " inválido");
 };
 
-void Idioma::setIdioma(string idioma)
-{
+void Idioma::setIdioma(string idioma) {
     validar(idioma);
     this->idioma = idioma;
 };
 
-void Nota::setNota(int nota)
-{
+void Nota::validar(int nota) {
+    bool valido = false;
+    for (int i = 0; i < NOTAS.size(); i++)
+        if (nota == NOTAS[i])
+            valido = true;
+    if (valido == false)
+        throw invalid_argument("Nota " + nota + " inválida - necessário que seja um dos valores: [0, 1, 2, 3, 4, 5]");
+};
+
+void Nota::setNota(int nota) {
     validar(nota);
     this->nota = nota;
 };
-
-void Nota::validar(int nota)
-{
-    int valido = 0;
-    for (int i = 0; i < NOTAS.size(); i++)
-        if (nota == NOTAS[i])
-            valido = 1;
-
-    if (valido == 0)
-        throw invalid_argument("Nota inválida - necessário que seja um dos valores: [0, 1, 2, 3, 4, 5]");
-}
