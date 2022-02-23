@@ -13,7 +13,8 @@ class Cidade {
             "Hong Kong", "Bangkok", "Macau", "Singapura",
             "Londres", "Paris", "Dubai", "Delhi", "Istambul",
             "Kuala Lumpur", "Nova Iorque", "Antalya", "Mumbai",
-            "Shenzhen", "Phuket"};
+            "Shenzhen", "Phuket"
+        };
         string cidade;
         void validar(string);
     public:
