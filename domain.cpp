@@ -68,3 +68,44 @@ void Idioma::setIdioma(string idioma) {
     validar(idioma);
     this->idioma = idioma;
 };
+
+void Data::validar(string data) {
+    int dia, ano;
+    string mes;
+    bool verifica = false;
+  
+    dia = stoi(data.substr(0, 2));
+    mes = data.substr(3, 3);
+    ano = stoi(data.substr(7, 4));
+
+    if (ano >= 2000 && ano <= 9999) {
+        if ((dia >= 1 && dia <= 31) && (mes == "Jan" || mes == "Mar" ||
+            mes == "Mai" || mes == "Jul" || mes == "Ago" || mes == "Out" || mes == "Dez"))
+          
+            verifica = true;
+
+        else if ((dia >= 1 && dia <= 30) && (mes == "Abr" || mes == "Jun" || mes == "Set" || mes == "Nov"))
+            verifica = true;
+
+        else if ((dia >= 1 && dia <= 28) && (mes == "Fev"))
+            verifica = true;
+
+        else if ((dia == 29 && mes == "Fev") && (ano % 400 == 0 || (ano % 4 == 0 && ano % 100 != 0)))
+            verifica = true;
+
+        else verifica = false;
+
+    }
+    
+    else verifica = false;
+
+    if (verifica == false) {
+        throw invalid_argument("Data " + data + " inválida");
+    }
+
+};
+
+void Data::setData(string data) {
+    validar(data);
+    this->data = data;
+}

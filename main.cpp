@@ -35,4 +35,12 @@ int main() {
         case TUIdioma::FALHA: cout << "FALHA - IDIOMA" << endl;
             break;
     };
+
+    TUData testeData;
+    switch(testeData.run()) {
+        case TUData::SUCESSO: cout << "SUCESSO - DATA" << endl;
+            break;
+        case TUData::FALHA: cout << "FALHA - DATA" << endl;
+            break;
+    };
 };

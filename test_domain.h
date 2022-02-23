@@ -81,4 +81,24 @@ class TUIdioma {
         int run();
 };
 
+class TUData {
+    private:
+        inline static const string DATA_VALIDA = "22-Fev-2022";
+        inline static const string DATA_INVALIDA1 = "29-02-2022";
+        inline static const string DATA_INVALIDA2 = "22-02-1999";
+        inline static const string DATA_INVALIDA3 = "22-02-10000";
+        Data *data;
+        int estado;
+        void setUp();
+        void tearDown();
+        void testarValido();
+        void testarInvalido1();
+        void testarInvalido2();
+        void testarInvalido3();
+    public:
+        static const int SUCESSO = 1;
+        static const int FALHA = 0;
+        int run();
+};
+
 #endif

@@ -75,4 +75,17 @@ inline string Idioma::getIdioma() const {
   return idioma;
 };
 
+class Data {
+    private:
+        string data;
+        void validar(string);
+    public:
+        void setData(string);
+        string getData() const;
+};
+
+inline string Data::getData() const {
+    return data;
+}
+
 #endif

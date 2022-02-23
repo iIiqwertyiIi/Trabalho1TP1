@@ -247,3 +247,73 @@ int TUIdioma::run() {
     tearDown();
     return estado;
 };
+
+void TUData::setUp() {
+    data = new Data();
+    estado = SUCESSO;
+};
+
+void TUData::tearDown() {
+    delete data;
+};
+
+void TUData::testarValido() {
+    try {
+        data->setData(DATA_VALIDA);
+        if (data->getData() != DATA_VALIDA) estado = FALHA;
+    }
+
+    catch (invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido1() {
+    try {
+        data->setData(DATA_INVALIDA1);
+        estado = FALHA;
+    }
+
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA1)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido2() {
+    try {
+        data->setData(DATA_INVALIDA2);
+        estado = FALHA;
+    }
+
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA2)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido3() {
+    try {
+        data->setData(DATA_INVALIDA3);
+        estado = FALHA;
+    }
+
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUData::run() {
+    setUp();
+    testarValido();
+    testarInvalido1();
+    testarInvalido2();
+    testarInvalido3();
+    tearDown();
+    return estado;
+};
