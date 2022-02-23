@@ -243,6 +243,138 @@ int TUDuracao::run() {
     return estado;
 };
 
+void TUEmail::setUp() {
+    email = new Email();
+    estado = SUCESSO;
+};
+
+void TUEmail::tearDown() {
+    delete email;
+};
+
+void TUEmail::testarValido() {
+    try {
+        email->setEmail(EMAIL_VALIDO);
+        if (email->getEmail() != EMAIL_VALIDO)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido1() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_1);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_1)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido2() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_2);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_2)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido3() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_3);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido4() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_4);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_4)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido5() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_5);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_5)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido6() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_6);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_6)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido7() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_7);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_7)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido8() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_8);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_8)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUEmail::run() {
+    setUp();
+    testarValido();
+    testarInvalido1();
+    testarInvalido2();
+    testarInvalido3();
+    testarInvalido4();
+    testarInvalido5();
+    testarInvalido6();
+    testarInvalido7();
+    testarInvalido8();
+    tearDown();
+    return estado;
+};
+
 void TUEndereco::setUp() {
     endereco = new Endereco();
     estado = SUCESSO;

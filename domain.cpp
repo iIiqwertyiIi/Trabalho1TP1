@@ -1,4 +1,5 @@
 #include "domain.h"
+#include <ctype.h>
 
 void Cidade::validar(string cidade) {
     bool valido = false;
@@ -66,6 +67,45 @@ void Duracao::validar(int duracao) {
 void Duracao::setDuracao(int duracao) {
     validar(duracao);
     this->duracao = duracao;
+};
+
+void Email::validar(string email) {
+    int position = 0;
+    for (int i = 0; i < email.length(); i++) {
+        if (email[i] == '@') {
+            position = i;
+            break;
+        };
+    };
+    if ((position == 0) or (position == email.length()))
+        throw invalid_argument("Email " + email + " com formato inválido");
+    string locale = email.substr(0, position);
+    string domain = email.substr(position + 1, -1);
+    if (locale.length() > 64)
+        throw invalid_argument("Parte local " + locale + " precisa ter no máximo 64 caracteres");
+    if (domain.length() > 253)
+        throw invalid_argument("Domínio " + domain + " precisa ter no máximo 253 caracteres");
+    if ((locale[0] == '.') or (locale.back() == '.'))
+        throw invalid_argument("Parte local " + locale + " não pode conter '.' no primeiro ou ultimo caractere");
+    if (domain[0] == '.')
+        throw invalid_argument("Dominio " + domain + " não pode conter '.' no primeiro caractere");
+    for (int i = 0; i < locale.length() - 1; i++)
+        if ((locale[i] == '.') and (locale[i + 1] == '.'))
+            throw invalid_argument("Parte local " + locale + " não pode conter '.' seguidos");
+    for (int i = 0; i < domain.length() - 1; i++)
+        if ((domain[i] == '.') and (domain[i + 1] == '.'))
+            throw invalid_argument("Dominio " + domain + " não pode conter '.' seguidos");
+    for (int i = 0; i < domain.length(); i++)
+        if ((!isalpha(domain[i]) and (!isdigit(domain[i])) and (domain[i] != '-') and (domain[i] != '.')))
+            throw invalid_argument("Dominio " + domain + " contém caracteres inválidos");
+    for (int i = 0; i < locale.length(); i++)
+        if ((!isalpha(locale[i]) and (!isdigit(locale[i])) and (locale[i] != '!') and (locale[i] != '#') and (locale[i] != '-') and (locale[i] != '.') and (locale[i] != '$') and (locale[i] != '%') and (locale[i] != '&') and (int(locale[i]) != 39) and (locale[i] != '*') and (locale[i] != '+') and (locale[i] != '/') and (locale[i] != '=') and (locale[i] != '?') and (locale[i] != '^') and (locale[i] != '_') and (locale[i] != '`') and (locale[i] != '{') and (locale[i] != '|') and (locale[i] != '}') and (locale[i] != '~')))
+            throw invalid_argument("Parte local " + domain + " contém caracteres inválidos");
+};
+
+void Email::setEmail(string email) {
+    validar(email);
+    this->email = email;
 };
 
 void Endereco::validar(string endereco) {

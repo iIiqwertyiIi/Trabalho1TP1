@@ -72,6 +72,19 @@ inline int Duracao::getDuracao() const {
     return duracao;
 };
 
+class Email {
+    private:
+        string email;
+        void validar(string);
+    public:
+        void setEmail(string);
+        string getEmail() const;
+};
+
+inline string Email::getEmail() const {
+    return email;
+};
+
 class Endereco {
     private:
         inline static const int TAMANHO_MAX = 20;

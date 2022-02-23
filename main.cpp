@@ -36,6 +36,14 @@ int main() {
         case TUDuracao::FALHA: cout << "FALHA - DURACAO" << endl;
             break;
     };
+    
+    TUEmail testeEmail;
+    switch (testeEmail.run()) {
+        case TUEmail::SUCESSO: cout << "SUCESSO - EMAIL" << endl;
+            break;
+        case TUEmail::FALHA: cout << "FALHA - EMAIL" << endl;
+            break;
+    };
 
     TUEndereco testeEndereco;
     switch (testeEndereco.run()) {
