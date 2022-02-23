@@ -4,6 +4,7 @@
 using namespace std;
 
 int main() {
+    setlocale(LC_ALL,"Portuguese");
     TUCidade testeCidade;
     switch(testeCidade.run()) {
         case TUCidade::SUCESSO: cout << "SUCESSO - CIDADE" << endl;
@@ -41,6 +42,14 @@ int main() {
         case TUEndereco::SUCESSO: cout << "SUCESSO - ENDERECO" << endl;
             break;
         case TUEndereco::FALHA: cout << "FALHA - ENDERECO" << endl;
+            break;
+    };
+
+    TUHorario testeHorario;
+    switch(testeHorario.run()) {
+        case TUHorario::SUCESSO: cout << "SUCESSO - HORARIO" << endl;
+            break;
+        case TUHorario::FALHA: cout << "FALHA - HORARIO" << endl;
             break;
     };
     

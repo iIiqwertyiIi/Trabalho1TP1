@@ -310,6 +310,99 @@ int TUEndereco::run() {
     return estado;
 };
 
+void TUHorario::setUp() {
+    horario = new Horario();
+    estado = SUCESSO;
+};
+
+void TUHorario::tearDown() {
+    delete horario;
+};
+
+void TUHorario::testarValido() {
+    try {
+        horario->setHorario(HORARIO_VALIDO);
+        if (horario->getHorario() != HORARIO_VALIDO)
+            estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUHorario::testarInvalido1() {
+    try {
+        horario->setHorario(HORARIO_INVALIDO_1);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (horario->getHorario() == HORARIO_INVALIDO_1)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUHorario::testarInvalido2() {
+    try {
+        horario->setHorario(HORARIO_INVALIDO_2);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (horario->getHorario() == HORARIO_INVALIDO_2)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUHorario::testarInvalido3() {
+    try {
+        horario->setHorario(HORARIO_INVALIDO_3);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (horario->getHorario() == HORARIO_INVALIDO_3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUHorario::testarInvalido4() {
+    try {
+        horario->setHorario(HORARIO_INVALIDO_4);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (horario->getHorario() == HORARIO_INVALIDO_4)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUHorario::testarInvalido5() {
+    try {
+        horario->setHorario(HORARIO_INVALIDO_5);
+        estado = FALHA;
+    }
+    catch(invalid_argument &excessao) {
+        if (horario->getHorario() == HORARIO_INVALIDO_5)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUHorario::run() {
+    setUp();
+    testarValido();
+    testarInvalido1();
+    testarInvalido2();
+    testarInvalido3();
+    testarInvalido4();
+    testarInvalido5();
+    tearDown();
+    return estado;
+};
+
 void TUIdioma::setUp() {
     idioma = new Idioma();
     estado = SUCESSO;
@@ -351,3 +444,4 @@ int TUIdioma::run() {
     tearDown();
     return estado;
 };
+

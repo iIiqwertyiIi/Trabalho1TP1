@@ -102,6 +102,26 @@ class TUEndereco {
         int run();
 };
 
+class TUHorario {
+    private:
+        inline static const string HORARIO_VALIDO = "18:37";
+        inline static const string HORARIO_INVALIDO_1 = "61";
+        inline static const string HORARIO_INVALIDO_2 = "18378";
+        inline static const string HORARIO_INVALIDO_3 = "SDA48";
+        inline static const string HORARIO_INVALIDO_4 = "25:37";
+        inline static const string HORARIO_INVALIDO_5 = "18:62";
+        Horario *horario;
+        void testarInvalido1();
+        void testarInvalido2();
+        void testarInvalido3();
+        void testarInvalido4();
+        void testarInvalido5();
+    public:
+        static const int SUCESSO = 1;
+        static const int FALHA = 0;
+        int run();
+};
+
 class TUIdioma {
     private:
         inline static const string IDIOMA_VALIDO = "Português";

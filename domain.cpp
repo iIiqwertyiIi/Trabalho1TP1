@@ -18,7 +18,7 @@ void Codigo::validar(string codigo) {
     vector<int> array = {};
     int soma = 0;
     int verificador = 0;
-    if (codigo.length() != 7)
+    if (codigo.length() != TAMANHO)
         throw invalid_argument("Código " + codigo + " com tamanho diferente de 7");
     for (int i = 0; i < codigo.length(); i++) {
         int a = codigo[i];
@@ -87,6 +87,27 @@ void Endereco::setEndereco(string endereco) {
     this->endereco = endereco;
 };
 
+void Horario::validar(string horario) {
+    if (horario.length() != TAMANHO)
+        throw invalid_argument("Horário " + horario + " tem formato inválido");
+    for (int i = 0; i < horario.length(); i++) {
+        int a = horario[i];
+        if (i == 2 && horario[i] != DOIS_PONTOS[0])
+            throw invalid_argument("Horário " + horario + " não tem dois pontos separando hora e minuto");
+        if (i != 2 && (a < 48 || a > 57))
+            throw invalid_argument("Horário " + horario + " possui caracteres não numéricos na hora ou minuto");
+    };
+    if (stoi(horario.substr(0, 2)) > LIMITE_HORA)
+        throw invalid_argument("Horário " + horario + " tem hora inválida");
+    if (stoi(horario.substr(3, 2)) > LIMITE_MINUTO)
+        throw invalid_argument("Horário " + horario + " tem minuto inválido");
+};
+
+void Horario::setHorario(string horario) {
+    validar(horario);
+    this->horario = horario;
+};
+
 void Idioma::validar(string idioma) {
     bool verifica = false;
     for (int i = 0; i < IDIOMAS.size(); i++) {
@@ -101,3 +122,4 @@ void Idioma::setIdioma(string idioma) {
     validar(idioma);
     this->idioma = idioma;
 };
+
