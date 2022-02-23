@@ -56,6 +56,21 @@ inline string Descricao::getDescricao() const {
   return descricao;
 };
 
+class Duracao {
+    private:
+        inline static const vector<int> DURACOES = {
+            30, 60, 90, 120, 180};
+        int duracao;
+        void validar(int);
+    public:
+        void setDuracao(int);
+        int getDuracao() const;
+};
+
+inline int Duracao::getDuracao() const {
+    return duracao;
+};
+
 class Endereco {
     private:
         inline static const int LIMITE = 20;

@@ -16,7 +16,7 @@ void TUCidade::testarValido() {
         if (cidade->getCidade() != CIDADE_VALIDA)
             estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         estado = FALHA;
         cout << excessao.what() << endl;
     };
@@ -27,7 +27,7 @@ void TUCidade::testarInvalido() {
         cidade->setCidade(CIDADE_INVALIDA);
         estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         if (cidade->getCidade() == CIDADE_INVALIDA)
             estado = FALHA;
         cout << excessao.what() << endl;
@@ -57,7 +57,7 @@ void TUCodigo::testarValido() {
         if (codigo->getCodigo() != CODIGO_VALIDO)
             estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         estado = FALHA;
         cout << excessao.what() << endl;
     };
@@ -68,7 +68,7 @@ void TUCodigo::testarInvalido1() {
         codigo->setCodigo(CODIGO_INVALIDO_1);
         estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         if (codigo->getCodigo() == CODIGO_INVALIDO_1)
             estado = FALHA;
         cout << excessao.what() << endl;
@@ -80,7 +80,7 @@ void TUCodigo::testarInvalido2() {
         codigo->setCodigo(CODIGO_INVALIDO_2);
         estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         if (codigo->getCodigo() == CODIGO_INVALIDO_2)
             estado = FALHA;
         cout << excessao.what() << endl;
@@ -92,7 +92,7 @@ void TUCodigo::testarInvalido3() {
         codigo->setCodigo(CODIGO_INVALIDO_3);
         estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         if (codigo->getCodigo() == CODIGO_INVALIDO_3)
             estado = FALHA;
         cout << excessao.what() << endl;
@@ -104,7 +104,7 @@ void TUCodigo::testarInvalido4() {
         codigo->setCodigo(CODIGO_INVALIDO_4);
         estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         if (codigo->getCodigo() == CODIGO_INVALIDO_4)
             estado = FALHA;
         cout << excessao.what() << endl;
@@ -116,7 +116,7 @@ void TUCodigo::testarInvalido5() {
         codigo->setCodigo(CODIGO_INVALIDO_5);
         estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         if (codigo->getCodigo() == CODIGO_INVALIDO_5)
             estado = FALHA;
         cout << excessao.what() << endl;
@@ -150,7 +150,6 @@ void TUDescricao::testarValido() {
         if (descricao->getDescricao() != DESCRICAO_VALIDA)
             estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         estado = FALHA;
         cout << excessao.what() << endl;
@@ -162,7 +161,6 @@ void TUDescricao::testarInvalido1() {
         descricao->setDescricao(DESCRICAO_INVALIDA_1);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (descricao->getDescricao() == DESCRICAO_INVALIDA_1)
             estado = FALHA;
@@ -175,7 +173,6 @@ void TUDescricao::testarInvalido2() {
         descricao->setDescricao(DESCRICAO_INVALIDA_2);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (descricao->getDescricao() == DESCRICAO_INVALIDA_2)
             estado = FALHA;
@@ -188,7 +185,6 @@ void TUDescricao::testarInvalido3() {
         descricao->setDescricao(DESCRICAO_INVALIDA_3);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (descricao->getDescricao() == DESCRICAO_INVALIDA_3)
             estado = FALHA;
@@ -202,6 +198,47 @@ int TUDescricao::run() {
     testarInvalido1();
     testarInvalido2();
     testarInvalido3();
+    tearDown();
+    return estado;
+};
+
+void TUDuracao::setUp() {
+    duracao = new Duracao();
+    estado = SUCESSO;
+};
+
+void TUDuracao::tearDown() {
+    delete duracao;
+};
+
+void TUDuracao::testarValido() {
+    try {
+        duracao->setDuracao(DURACAO_VALIDA);
+        if (duracao->getDuracao() != DURACAO_VALIDA)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUDuracao::testarInvalido() {
+    try {
+        duracao->setDuracao(DURACAO_INVALIDA);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (duracao->getDuracao() == DURACAO_INVALIDA)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUDuracao::run() {
+    setUp();
+    testarValido();
+    testarInvalido();
     tearDown();
     return estado;
 };

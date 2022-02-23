@@ -54,6 +54,20 @@ void Descricao::setDescricao(string descricao) {
     this->descricao = descricao;
 };
 
+void Duracao::validar(int duracao) {
+    int valido = 0;
+    for (int i = 0; i < DURACOES.size(); i++)
+        if (duracao == DURACOES[i])
+            valido = 1;
+    if (valido == 0)
+        throw invalid_argument("Duração " + duracao + " inválida - necessário que seja um dos valores: (30, 60, 90, 120, 180)");
+};
+
+void Duracao::setDuracao(int duracao) {
+    validar(duracao);
+    this->duracao = duracao;
+};
+
 void Endereco::validar(string endereco) {
     vector<int> array = {};
     if (endereco.length() > LIMITE)
