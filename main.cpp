@@ -3,60 +3,44 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     TUCidade testeA;
-    switch (testeA.run())
-    {
-    case TUCidade::SUCESSO:
-        cout << "SUCESSO - CIDADE" << endl;
+    switch (testeA.run()) {
+    case TUCidade::SUCESSO: cout << "SUCESSO - CIDADE" << endl;
         break;
-    case TUCidade::FALHA:
-        cout << "FALHA - CIDADE" << endl;
+    case TUCidade::FALHA: cout << "FALHA - CIDADE" << endl;
         break;
     };
 
     TUCodigo testeB;
-    switch (testeB.run())
-    {
-    case TUCodigo::SUCESSO:
-        cout << "SUCESSO - CODIGO" << endl;
+    switch (testeB.run()) {
+    case TUCodigo::SUCESSO: cout << "SUCESSO - CODIGO" << endl;
         break;
-    case TUCodigo::FALHA:
-        cout << "FALHA - CODIGO" << endl;
+    case TUCodigo::FALHA: cout << "FALHA - CODIGO" << endl;
         break;
     };
 
     TUDescricao testeDescricao;
-    switch (testeDescricao.run())
-    {
-    case TUDescricao::SUCESSO:
-        cout << "SUCESSO - DESCRICAO" << endl;
+    switch (testeDescricao.run()) {
+    case TUDescricao::SUCESSO: cout << "SUCESSO - DESCRICAO" << endl;
         break;
-    case TUDescricao::FALHA:
-        cout << "FALHA - DESCRICAO" << endl;
+    case TUDescricao::FALHA: cout << "FALHA - DESCRICAO" << endl;
         break;
     };
 
     TUIdioma testeIdioma;
-    switch (testeIdioma.run())
-    {
-    case TUIdioma::SUCESSO:
-        cout << "SUCESSO - IDIOMA" << endl;
+    switch (testeIdioma.run()) {
+    case TUIdioma::SUCESSO: cout << "SUCESSO - IDIOMA" << endl;
         break;
-    case TUIdioma::FALHA:
-        cout << "FALHA - IDIOMA" << endl;
+    case TUIdioma::FALHA: cout << "FALHA - IDIOMA" << endl;
         break;
     };
 
     TUNota testeNota;
-    switch (testeNota.run())
-    {
-    case TUNota::SUCESSO:
-        cout << "SUCESSO - NOTA" << endl;
+    switch (testeNota.run()) {
+    case TUNota::SUCESSO: cout << "SUCESSO - NOTA" << endl;
         break;
-    case TUNota::FALHA:
-        cout << "FALHA - DURAÇÃO" << endl;
+    case TUNota::FALHA: cout << "FALHA - DURAÇÃO" << endl;
         break;
-    }
+    };
 };
