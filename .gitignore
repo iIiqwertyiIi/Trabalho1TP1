@@ -31,6 +31,4 @@
 *.out
 *.app
 
-*.ilk
-*.pdb
 .vscode

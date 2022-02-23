@@ -40,6 +40,34 @@ void Codigo::setCodigo(string codigo) {
     this->codigo = codigo;
 };
 
+void Descricao::validar(string descricao) {
+    if (descricao.length() > TAMANHO)
+        throw invalid_argument("Descrição " + descricao + " com tamanho inválido");
+    if (descricao.find("  ") != std::string::npos)
+        throw invalid_argument("Descrição " + descricao + " contém dois espaços consecutivos");
+    if (descricao.find("..") != std::string::npos)
+        throw invalid_argument("Descrição " + descricao + " contém dois pontos consecutivos");
+};
+
+void Descricao::setDescricao(string descricao) {
+    validar(descricao);
+    this->descricao = descricao;
+};
+
+void Duracao::validar(int duracao) {
+    int valido = 0;
+    for (int i = 0; i < DURACOES.size(); i++)
+        if (duracao == DURACOES[i])
+            valido = 1;
+    if (valido == 0)
+        throw invalid_argument("Duração " + duracao + " inválida - necessário que seja um dos valores: (30, 60, 90, 120, 180)");
+};
+
+void Duracao::setDuracao(int duracao) {
+    validar(duracao);
+    this->duracao = duracao;
+};
+
 void Endereco::validar(string endereco) {
     if (endereco.length() > TAMANHO_MAX)
         throw invalid_argument("Endereço " + endereco + " maior que o limite de caracteres");
@@ -73,6 +101,21 @@ void Horario::validar(string horario) {
 void Horario::setHorario(string horario) {
     validar(horario);
     this->horario = horario;
+};
+
+void Idioma::validar(string idioma) {
+    bool verifica = false;
+    for (int i = 0; i < IDIOMAS.size(); i++) {
+        if (idioma == IDIOMAS[i])
+            verifica = true;
+    };
+    if (verifica == false) 
+        throw invalid_argument("Idioma " + idioma + " inválido");
+};
+
+void Idioma::setIdioma(string idioma) {
+    validar(idioma);
+    this->idioma = idioma;
 };
 
 void Senha::validar(string senha) {
