@@ -316,6 +316,19 @@ void TUTitulo::testarInvalido4() {
     };
 };
 
+void TUTitulo::testarInvalido5() {
+    try {
+        titulo->setTitulo(TITULO_INVALIDO_5);
+        if (titulo->getTitulo() != TITULO_INVALIDO_5)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (titulo->getTitulo() == TITULO_INVALIDO_5)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
 int TUTitulo::run() {
     setUp();
     testarValido();
@@ -323,6 +336,7 @@ int TUTitulo::run() {
     testarInvalido2();
     testarInvalido3();
     testarInvalido4();
+    testarInvalido5();
     tearDown();
     return estado;
 };
