@@ -21,7 +21,7 @@ class TUCidade {
         int run();
 };
 
-class TUCodigo 
+class TUCodigo {
     private:
         inline static const string CODIGO_VALIDO = "2586719";
         inline static const string CODIGO_INVALIDO_1 = "0000000";
