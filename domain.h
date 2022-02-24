@@ -46,7 +46,6 @@ class Descricao {
         static const int TAMANHO = 30;
         string descricao;
         void validar(string);
-
     public:
         void setDescricao(string);
         string getDescricao() const;
@@ -65,7 +64,6 @@ class Idioma {
         };
         string idioma;
         void validar(string);
-  
     public:
         void setIdioma(string);
         string getIdioma() const;
