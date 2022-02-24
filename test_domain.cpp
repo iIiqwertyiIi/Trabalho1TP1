@@ -150,7 +150,6 @@ void TUDescricao::testarValido() {
         if (descricao->getDescricao() != DESCRICAO_VALIDA)
             estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         estado = FALHA;
         cout << excessao.what() << endl;
@@ -162,7 +161,6 @@ void TUDescricao::testarInvalido1() {
         descricao->setDescricao(DESCRICAO_INVALIDA_1);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (descricao->getDescricao() == DESCRICAO_INVALIDA_1)
             estado = FALHA;
@@ -175,7 +173,6 @@ void TUDescricao::testarInvalido2() {
         descricao->setDescricao(DESCRICAO_INVALIDA_2);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (descricao->getDescricao() == DESCRICAO_INVALIDA_2)
             estado = FALHA;
@@ -188,7 +185,6 @@ void TUDescricao::testarInvalido3() {
         descricao->setDescricao(DESCRICAO_INVALIDA_3);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (descricao->getDescricao() == DESCRICAO_INVALIDA_3)
             estado = FALHA;
@@ -220,7 +216,6 @@ void TUIdioma::testarValido() {
         idioma->setIdioma(IDIOMA_VALIDO);
         if (idioma->getIdioma() != IDIOMA_VALIDO) estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         estado = FALHA;
         cout << excessao.what() << endl;
@@ -232,7 +227,6 @@ void TUIdioma::testarInvalido() {
         idioma->setIdioma(IDIOMA_INVALIDO);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (idioma->getIdioma() == IDIOMA_INVALIDO)
             estado = FALHA;
@@ -262,7 +256,6 @@ void TUData::testarValido() {
         data->setData(DATA_VALIDA);
         if (data->getData() != DATA_VALIDA) estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         estado = FALHA;
         cout << excessao.what() << endl;
@@ -274,7 +267,6 @@ void TUData::testarInvalido1() {
         data->setData(DATA_INVALIDA1);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (data->getData() == DATA_INVALIDA1)
             estado = FALHA;
@@ -287,7 +279,6 @@ void TUData::testarInvalido2() {
         data->setData(DATA_INVALIDA2);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (data->getData() == DATA_INVALIDA2)
             estado = FALHA;
@@ -300,7 +291,6 @@ void TUData::testarInvalido3() {
         data->setData(DATA_INVALIDA3);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (data->getData() == DATA_INVALIDA3)
             estado = FALHA;
@@ -333,7 +323,6 @@ void TUNome::testarValido() {
         if (nome->getNome() != NOME_VALIDO)
             estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         estado = FALHA;
         cout << excessao.what() << endl;
@@ -345,7 +334,6 @@ void TUNome::testarInvalido1() {
         nome->setNome(NOME_INVALIDO_1);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (nome->getNome() == NOME_INVALIDO_1)
             estado = FALHA;
@@ -358,7 +346,6 @@ void TUNome::testarInvalido2() {
         nome->setNome(NOME_INVALIDO_2);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (nome->getNome() == NOME_INVALIDO_2)
             estado = FALHA;
@@ -371,7 +358,6 @@ void TUNome::testarInvalido3() {
         nome->setNome(NOME_INVALIDO_3);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (nome->getNome() == NOME_INVALIDO_3)
             estado = FALHA;
@@ -384,7 +370,6 @@ void TUNome::testarInvalido4() {
         nome->setNome(NOME_INVALIDO_4);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (nome->getNome() == NOME_INVALIDO_4)
             estado = FALHA;
@@ -397,7 +382,6 @@ void TUNome::testarInvalido5() {
         nome->setNome(NOME_INVALIDO_5);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (nome->getNome() == NOME_INVALIDO_5)
             estado = FALHA;
@@ -410,9 +394,20 @@ void TUNome::testarInvalido6() {
         nome->setNome(NOME_INVALIDO_6);
         estado = FALHA;
     }
-
     catch (invalid_argument &excessao) {
         if (nome->getNome() == NOME_INVALIDO_6)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUNome::testarInvalido7() {
+    try {
+        nome->setNome(NOME_INVALIDO_7);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (nome->getNome() == NOME_INVALIDO_7)
             estado = FALHA;
         cout << excessao.what() << endl;
     };
@@ -427,6 +422,7 @@ int TUNome::run() {
     testarInvalido4();
     testarInvalido5();
     testarInvalido6();
+    testarInvalido7();
     tearDown();
     return estado;
 };
