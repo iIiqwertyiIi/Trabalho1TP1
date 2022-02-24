@@ -112,8 +112,6 @@ void Nome::validar(string nome) {
         if (nome[i] == ' ') {
             if (nome[i+1] == ' ')
                 throw invalid_argument("Nome " + nome + " possui espaços em branco em sequencia");
-            if (nome[i+1] == '.')
-                throw invalid_argument("Nome " + nome + " não pode ter (.) precedido por espaços");
             if (!isupper(nome[i+1]))
                 throw invalid_argument("Todos os termos do nome " + nome + " precisam ter a primeira letra maiúscula");
         };
