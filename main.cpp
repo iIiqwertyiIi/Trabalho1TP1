@@ -1,5 +1,7 @@
 #include "domain.h"
 #include "test_domain.h"
+#include "entity.h"
+#include "test_entity.h"
 
 using namespace std;
 
@@ -107,6 +109,38 @@ int main() {
         case TUTitulo::SUCESSO: cout << "SUCESSO - TITULO" << endl;
             break;
         case TUTitulo::FALHA: cout << "FALHA - TITULO" << endl;
+            break;
+    };
+
+    TUAvaliacao testeAvaliacao;
+    switch (testeAvaliacao.run()) {
+        case TUAvaliacao::SUCESSO: cout << "SUCESSO - AVALIACAO" << endl;
+            break;
+        case TUAvaliacao::FALHA: cout << "FALHA - AVALIACAO" << endl;
+            break;
+    };
+
+    TUExcursao testeExcursao;
+    switch (testeExcursao.run()) {
+        case TUExcursao::SUCESSO: cout << "SUCESSO - EXCURSAO" << endl;
+            break;
+        case TUExcursao::FALHA: cout << "FALHA - EXCURSAO" << endl;
+            break;
+    };
+
+    TUSessao testeSessao;
+    switch (testeSessao.run()) {
+        case TUSessao::SUCESSO: cout << "SUCESSO - SESSAO" << endl;
+            break;
+        case TUSessao::FALHA: cout << "FALHA - SESSAO" << endl;
+            break;
+    };
+
+    TUUsuario testeUsuario;
+    switch (testeUsuario.run()) {
+        case TUUsuario::SUCESSO: cout << "SUCESSO - USUARIO" << endl;
+            break;
+        case TUUsuario::FALHA: cout << "FALHA - USUARIO" << endl;
             break;
     };
 };
