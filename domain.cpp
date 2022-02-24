@@ -108,7 +108,7 @@ void Duracao::validar(int duracao) {
         if (duracao == DURACOES[i])
             valido = 1;
     if (valido == 0)
-        throw invalid_argument("Duração " + duracao + " inválida - necessário que seja um dos valores: (30, 60, 90, 120, 180)");
+        throw invalid_argument("Duração " + to_string(duracao) + " inválida - necessário que seja um dos valores: (30, 60, 90, 120, 180)");
 };
 
 void Duracao::setDuracao(int duracao) {
@@ -124,7 +124,7 @@ void Email::validar(string email) {
             break;
         };
     };
-    if ((position == 0) or (position == email.length()))
+    if ((position == 0) || (position == email.length()))
         throw invalid_argument("Email " + email + " com formato inválido");
     string locale = email.substr(0, position);
     string domain = email.substr(position + 1, -1);
@@ -132,21 +132,21 @@ void Email::validar(string email) {
         throw invalid_argument("Parte local " + locale + " precisa ter no máximo 64 caracteres");
     if (domain.length() > 253)
         throw invalid_argument("Domínio " + domain + " precisa ter no máximo 253 caracteres");
-    if ((locale[0] == '.') or (locale.back() == '.'))
+    if ((locale[0] == '.') || (locale.back() == '.'))
         throw invalid_argument("Parte local " + locale + " não pode conter '.' no primeiro ou ultimo caractere");
     if (domain[0] == '.')
         throw invalid_argument("Dominio " + domain + " não pode conter '.' no primeiro caractere");
     for (int i = 0; i < locale.length() - 1; i++)
-        if ((locale[i] == '.') and (locale[i + 1] == '.'))
+        if ((locale[i] == '.') && (locale[i + 1] == '.'))
             throw invalid_argument("Parte local " + locale + " não pode conter '.' seguidos");
     for (int i = 0; i < domain.length() - 1; i++)
-        if ((domain[i] == '.') and (domain[i + 1] == '.'))
+        if ((domain[i] == '.') && (domain[i + 1] == '.'))
             throw invalid_argument("Dominio " + domain + " não pode conter '.' seguidos");
     for (int i = 0; i < domain.length(); i++)
-        if ((!isalpha(domain[i]) and (!isdigit(domain[i])) and (domain[i] != '-') and (domain[i] != '.')))
+        if ((!isalpha(domain[i]) && (!isdigit(domain[i])) && (domain[i] != '-') && (domain[i] != '.')))
             throw invalid_argument("Dominio " + domain + " contém caracteres inválidos");
     for (int i = 0; i < locale.length(); i++)
-        if ((!isalpha(locale[i]) and (!isdigit(locale[i])) and (locale[i] != '!') and (locale[i] != '#') and (locale[i] != '-') and (locale[i] != '.') and (locale[i] != '$') and (locale[i] != '%') and (locale[i] != '&') and (int(locale[i]) != 39) and (locale[i] != '*') and (locale[i] != '+') and (locale[i] != '/') and (locale[i] != '=') and (locale[i] != '?') and (locale[i] != '^') and (locale[i] != '_') and (locale[i] != '`') and (locale[i] != '{') and (locale[i] != '|') and (locale[i] != '}') and (locale[i] != '~')))
+        if ((!isalpha(locale[i]) && (!isdigit(locale[i])) && (locale[i] != '!') && (locale[i] != '#') && (locale[i] != '-') && (locale[i] != '.') && (locale[i] != '$') && (locale[i] != '%') && (locale[i] != '&') && (int(locale[i]) != 39) && (locale[i] != '*') && (locale[i] != '+') && (locale[i] != '/') && (locale[i] != '=') && (locale[i] != '?') && (locale[i] != '^') && (locale[i] != '_') && (locale[i] != '`') && (locale[i] != '{') && (locale[i] != '|') && (locale[i] != '}') && (locale[i] != '~')))
             throw invalid_argument("Parte local " + domain + " contém caracteres inválidos");
 };
 
@@ -208,12 +208,12 @@ void Nome::validar(string nome) {
     if (nome.length() < MIN || nome.length() > MAX)
         throw invalid_argument("Nome " + nome + " inválido. Contém menos que 5 caractéres ou mais que 20.");
     for (int i = 0; i < nome.length(); i++)
-        if ((!isalpha(nome[i])) and (nome[i] != '.') and (nome[i] != ' '))
+        if ((!isalpha(nome[i])) && (nome[i] != '.') && (nome[i] != ' '))
             throw invalid_argument("Nome " + nome + " contém caracteres inválidos");
     if(!isupper(nome[0]))
         throw invalid_argument("Todos os termos do nome " + nome + " precisam ter a primeira letra maúscula");
     for (int i = 0; i < nome.length(); i++) {
-        if(nome[i] == '.' and (!isalpha(nome[i-1])))
+        if(nome[i] == '.' && (!isalpha(nome[i-1])))
             throw invalid_argument("Nome " + nome + " invalido. Todo (.) precisa ser precedido por letra");
         if (nome[i] == ' ') {
             if (nome[i+1] == ' ')
@@ -222,7 +222,7 @@ void Nome::validar(string nome) {
                 throw invalid_argument("Todos os termos do nome " + nome + " precisam ter a primeira letra maiúscula");
         };
         if(nome[i] == '.')
-            if ((!(i == nome.length()-1)) and (!(nome[i] == ' ')))
+            if ((!(i == nome.length()-1)) && (!(nome[i] == ' ')))
                 throw invalid_argument("O (.) do nome " + nome + " deve ser o último caractere ou sucedido por um espaço em branco");
     };
 };
@@ -238,7 +238,7 @@ void Nota::validar(int nota) {
         if (nota == NOTAS[i])
             valido = true;
     if (valido == false)
-        throw invalid_argument("Nota " + nota + " inválida - necessário que seja um dos valores: [0, 1, 2, 3, 4, 5]");
+        throw invalid_argument("Nota " + to_string(nota) + " inválida - necessário que seja um dos valores: [0, 1, 2, 3, 4, 5]");
 };
 
 void Nota::setNota(int nota) {
@@ -292,7 +292,7 @@ void Titulo::validar(string titulo) {
     if (qtdLetras < 5)
         throw invalid_argument("Titulo " + titulo + " precisa ter mais de 5 letras");
     for (int i = 0; i < titulo.length(); i++)
-        if ((!isalpha(titulo[i])) and (titulo[i] != '.') and (titulo[i] != ' '))
+        if ((!isalpha(titulo[i])) && (titulo[i] != '.') && (titulo[i] != ' '))
             throw invalid_argument("Título " + titulo + " contém caracteres inválidos");
     if (titulo.find("  ") != std::string::npos)
         throw invalid_argument("Título " + titulo + " não pode conter espaços em branco em sequência");
