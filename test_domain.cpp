@@ -16,7 +16,7 @@ void TUCidade::testarValido() {
         if (cidade->getCidade() != CIDADE_VALIDA)
             estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         estado = FALHA;
         cout << excessao.what() << endl;
     };
@@ -27,7 +27,7 @@ void TUCidade::testarInvalido() {
         cidade->setCidade(CIDADE_INVALIDA);
         estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         if (cidade->getCidade() == CIDADE_INVALIDA)
             estado = FALHA;
         cout << excessao.what() << endl;
@@ -57,7 +57,7 @@ void TUCodigo::testarValido() {
         if (codigo->getCodigo() != CODIGO_VALIDO)
             estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         estado = FALHA;
         cout << excessao.what() << endl;
     };
@@ -68,7 +68,7 @@ void TUCodigo::testarInvalido1() {
         codigo->setCodigo(CODIGO_INVALIDO_1);
         estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         if (codigo->getCodigo() == CODIGO_INVALIDO_1)
             estado = FALHA;
         cout << excessao.what() << endl;
@@ -80,7 +80,7 @@ void TUCodigo::testarInvalido2() {
         codigo->setCodigo(CODIGO_INVALIDO_2);
         estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         if (codigo->getCodigo() == CODIGO_INVALIDO_2)
             estado = FALHA;
         cout << excessao.what() << endl;
@@ -92,7 +92,7 @@ void TUCodigo::testarInvalido3() {
         codigo->setCodigo(CODIGO_INVALIDO_3);
         estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         if (codigo->getCodigo() == CODIGO_INVALIDO_3)
             estado = FALHA;
         cout << excessao.what() << endl;
@@ -104,7 +104,7 @@ void TUCodigo::testarInvalido4() {
         codigo->setCodigo(CODIGO_INVALIDO_4);
         estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         if (codigo->getCodigo() == CODIGO_INVALIDO_4)
             estado = FALHA;
         cout << excessao.what() << endl;
@@ -116,7 +116,7 @@ void TUCodigo::testarInvalido5() {
         codigo->setCodigo(CODIGO_INVALIDO_5);
         estado = FALHA;
     }
-    catch(invalid_argument &excessao) {
+    catch (invalid_argument &excessao) {
         if (codigo->getCodigo() == CODIGO_INVALIDO_5)
             estado = FALHA;
         cout << excessao.what() << endl;
@@ -131,6 +131,137 @@ int TUCodigo::run() {
     testarInvalido3();
     testarInvalido4();
     testarInvalido5();
+    tearDown();
+    return estado;
+};
+
+void TUData::setUp() {
+    data = new Data();
+    estado = SUCESSO;
+};
+
+void TUData::tearDown() {
+    delete data;
+};
+
+void TUData::testarValido() {
+    try {
+        data->setData(DATA_VALIDA);
+        if (data->getData() != DATA_VALIDA) estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido1() {
+    try {
+        data->setData(DATA_INVALIDA_1);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA_1)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido2() {
+    try {
+        data->setData(DATA_INVALIDA_2);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA_2)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido3() {
+    try {
+        data->setData(DATA_INVALIDA_3);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA_3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido4() {
+    try {
+        data->setData(DATA_INVALIDA_4);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA_4)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido5() {
+    try {
+        data->setData(DATA_INVALIDA_5);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA_5)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido6() {
+    try {
+        data->setData(DATA_INVALIDA_6);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA_6)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido7() {
+    try {
+        data->setData(DATA_INVALIDA_7);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA_7)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUData::testarInvalido8() {
+    try {
+        data->setData(DATA_INVALIDA_8);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (data->getData() == DATA_INVALIDA_8)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUData::run() {
+    setUp();
+    testarValido();
+    testarInvalido1();
+    testarInvalido2();
+    testarInvalido3();
+    testarInvalido4();
+    testarInvalido5();
+    testarInvalido6();
+    testarInvalido7();
+    testarInvalido8();
     tearDown();
     return estado;
 };
@@ -202,6 +333,339 @@ int TUDescricao::run() {
     return estado;
 };
 
+void TUDuracao::setUp() {
+    duracao = new Duracao();
+    estado = SUCESSO;
+};
+
+void TUDuracao::tearDown() {
+    delete duracao;
+};
+
+void TUDuracao::testarValido() {
+    try {
+        duracao->setDuracao(DURACAO_VALIDA);
+        if (duracao->getDuracao() != DURACAO_VALIDA)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUDuracao::testarInvalido() {
+    try {
+        duracao->setDuracao(DURACAO_INVALIDA);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (duracao->getDuracao() == DURACAO_INVALIDA)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUDuracao::run() {
+    setUp();
+    testarValido();
+    testarInvalido();
+    tearDown();
+    return estado;
+};
+
+void TUEmail::setUp() {
+    email = new Email();
+    estado = SUCESSO;
+};
+
+void TUEmail::tearDown() {
+    delete email;
+};
+
+void TUEmail::testarValido() {
+    try {
+        email->setEmail(EMAIL_VALIDO);
+        if (email->getEmail() != EMAIL_VALIDO)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido1() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_1);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_1)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido2() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_2);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_2)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido3() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_3);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido4() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_4);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_4)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido5() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_5);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_5)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido6() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_6);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_6)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido7() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_7);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_7)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEmail::testarInvalido8() {
+    try {
+        email->setEmail(EMAIL_INVALIDO_8);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (email->getEmail() == EMAIL_INVALIDO_8)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUEmail::run() {
+    setUp();
+    testarValido();
+    testarInvalido1();
+    testarInvalido2();
+    testarInvalido3();
+    testarInvalido4();
+    testarInvalido5();
+    testarInvalido6();
+    testarInvalido7();
+    testarInvalido8();
+    tearDown();
+    return estado;
+};
+
+void TUEndereco::setUp() {
+    endereco = new Endereco();
+    estado = SUCESSO;
+};
+
+void TUEndereco::tearDown() {
+    delete endereco;
+};
+
+void TUEndereco::testarValido() {
+    try {
+        endereco->setEndereco(ENDERECO_VALIDO);
+        if (endereco->getEndereco() != ENDERECO_VALIDO)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEndereco::testarInvalido1() {
+    try {
+        endereco->setEndereco(ENDERECO_INVALIDO_1);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (endereco->getEndereco() == ENDERECO_INVALIDO_1)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEndereco::testarInvalido2() {
+    try {
+        endereco->setEndereco(ENDERECO_INVALIDO_2);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (endereco->getEndereco() == ENDERECO_INVALIDO_2)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUEndereco::testarInvalido3() {
+    try {
+        endereco->setEndereco(ENDERECO_INVALIDO_3);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (endereco->getEndereco() == ENDERECO_INVALIDO_3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUEndereco::run() {
+    setUp();
+    testarValido();
+    testarInvalido1();
+    testarInvalido2();
+    testarInvalido3();
+    tearDown();
+    return estado;
+};
+
+void TUHorario::setUp() {
+    horario = new Horario();
+    estado = SUCESSO;
+};
+
+void TUHorario::tearDown() {
+    delete horario;
+};
+
+void TUHorario::testarValido() {
+    try {
+        horario->setHorario(HORARIO_VALIDO);
+        if (horario->getHorario() != HORARIO_VALIDO)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUHorario::testarInvalido1() {
+    try {
+        horario->setHorario(HORARIO_INVALIDO_1);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (horario->getHorario() == HORARIO_INVALIDO_1)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUHorario::testarInvalido2() {
+    try {
+        horario->setHorario(HORARIO_INVALIDO_2);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (horario->getHorario() == HORARIO_INVALIDO_2)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUHorario::testarInvalido3() {
+    try {
+        horario->setHorario(HORARIO_INVALIDO_3);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (horario->getHorario() == HORARIO_INVALIDO_3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUHorario::testarInvalido4() {
+    try {
+        horario->setHorario(HORARIO_INVALIDO_4);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (horario->getHorario() == HORARIO_INVALIDO_4)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUHorario::testarInvalido5() {
+    try {
+        horario->setHorario(HORARIO_INVALIDO_5);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (horario->getHorario() == HORARIO_INVALIDO_5)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUHorario::run() {
+    setUp();
+    testarValido();
+    testarInvalido1();
+    testarInvalido2();
+    testarInvalido3();
+    testarInvalido4();
+    testarInvalido5();
+    tearDown();
+    return estado;
+};
+
 void TUIdioma::setUp() {
     idioma = new Idioma();
     estado = SUCESSO;
@@ -214,7 +678,8 @@ void TUIdioma::tearDown() {
 void TUIdioma::testarValido() {
     try {
         idioma->setIdioma(IDIOMA_VALIDO);
-        if (idioma->getIdioma() != IDIOMA_VALIDO) estado = FALHA;
+        if (idioma->getIdioma() != IDIOMA_VALIDO)
+            estado = FALHA;
     }
     catch (invalid_argument &excessao) {
         estado = FALHA;
@@ -238,72 +703,6 @@ int TUIdioma::run() {
     setUp();
     testarValido();
     testarInvalido();
-    tearDown();
-    return estado;
-};
-
-void TUData::setUp() {
-    data = new Data();
-    estado = SUCESSO;
-};
-
-void TUData::tearDown() {
-    delete data;
-};
-
-void TUData::testarValido() {
-    try {
-        data->setData(DATA_VALIDA);
-        if (data->getData() != DATA_VALIDA) estado = FALHA;
-    }
-    catch (invalid_argument &excessao) {
-        estado = FALHA;
-        cout << excessao.what() << endl;
-    };
-};
-
-void TUData::testarInvalido1() {
-    try {
-        data->setData(DATA_INVALIDA1);
-        estado = FALHA;
-    }
-    catch (invalid_argument &excessao) {
-        if (data->getData() == DATA_INVALIDA1)
-            estado = FALHA;
-        cout << excessao.what() << endl;
-    };
-};
-
-void TUData::testarInvalido2() {
-    try {
-        data->setData(DATA_INVALIDA2);
-        estado = FALHA;
-    }
-    catch (invalid_argument &excessao) {
-        if (data->getData() == DATA_INVALIDA2)
-            estado = FALHA;
-        cout << excessao.what() << endl;
-    };
-};
-
-void TUData::testarInvalido3() {
-    try {
-        data->setData(DATA_INVALIDA3);
-        estado = FALHA;
-    }
-    catch (invalid_argument &excessao) {
-        if (data->getData() == DATA_INVALIDA3)
-            estado = FALHA;
-        cout << excessao.what() << endl;
-    };
-};
-
-int TUData::run() {
-    setUp();
-    testarValido();
-    testarInvalido1();
-    testarInvalido2();
-    testarInvalido3();
     tearDown();
     return estado;
 };
@@ -423,6 +822,251 @@ int TUNome::run() {
     testarInvalido5();
     testarInvalido6();
     testarInvalido7();
+    tearDown();
+    return estado;
+};
+
+void TUNota::setUp() {
+    nota = new Nota();
+    estado = SUCESSO;
+};
+
+void TUNota::tearDown() {
+    delete nota;
+};
+
+void TUNota::testarValido() {
+    try {
+        nota->setNota(NOTA_VALIDA);
+        if (nota->getNota() != NOTA_VALIDA)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUNota::testarInvalido() {
+    try {
+        nota->setNota(NOTA_INVALIDA);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (nota->getNota() == NOTA_INVALIDA)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUNota::run() {
+    setUp();
+    testarValido();
+    testarInvalido();
+    tearDown();
+    return estado;
+};
+
+void TUSenha::setUp() {
+    senha = new Senha();
+    estado = SUCESSO;
+};
+
+void TUSenha::tearDown() {
+    delete senha;
+};
+
+void TUSenha::testarValido() {
+    try {
+        senha->setSenha(SENHA_VALIDA);
+        if (senha->getSenha() != SENHA_VALIDA)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUSenha::testarInvalido1() {
+    try {
+        senha->setSenha(SENHA_INVALIDA_1);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (senha->getSenha() == SENHA_INVALIDA_1)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUSenha::testarInvalido2() {
+    try {
+        senha->setSenha(SENHA_INVALIDA_2);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (senha->getSenha() == SENHA_INVALIDA_2)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUSenha::testarInvalido3() {
+    try {
+        senha->setSenha(SENHA_INVALIDA_3);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (senha->getSenha() == SENHA_INVALIDA_3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUSenha::testarInvalido4() {
+    try {
+        senha->setSenha(SENHA_INVALIDA_4);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (senha->getSenha() == SENHA_INVALIDA_4)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUSenha::testarInvalido5() {
+    try {
+        senha->setSenha(SENHA_INVALIDA_5);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (senha->getSenha() == SENHA_INVALIDA_5)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUSenha::testarInvalido6() {
+    try {
+        senha->setSenha(SENHA_INVALIDA_6);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (senha->getSenha() == SENHA_INVALIDA_6)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUSenha::run() {
+    setUp();
+    testarValido();
+    testarInvalido1();
+    testarInvalido2();
+    testarInvalido3();
+    testarInvalido4();
+    testarInvalido5();
+    testarInvalido6();
+    tearDown();
+    return estado;
+};
+
+void TUTitulo::setUp() {
+    titulo = new Titulo();
+    estado = SUCESSO;
+};
+
+void TUTitulo::tearDown() {
+    delete titulo;
+};
+
+void TUTitulo::testarValido() {
+    try {
+        titulo->setTitulo(TITULO_VALIDO);
+        if (titulo->getTitulo() != TITULO_VALIDO)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUTitulo::testarInvalido1() {
+    try {
+        titulo->setTitulo(TITULO_INVALIDO_1);
+        if (titulo->getTitulo() != TITULO_INVALIDO_1)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (titulo->getTitulo() == TITULO_INVALIDO_1)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUTitulo::testarInvalido2() {
+    try {
+        titulo->setTitulo(TITULO_INVALIDO_2);
+        if (titulo->getTitulo() != TITULO_INVALIDO_2)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (titulo->getTitulo() == TITULO_INVALIDO_2)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUTitulo::testarInvalido3() {
+    try {
+        titulo->setTitulo(TITULO_INVALIDO_3);
+        if (titulo->getTitulo() != TITULO_INVALIDO_3)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (titulo->getTitulo() == TITULO_INVALIDO_3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUTitulo::testarInvalido4() {
+    try {
+        titulo->setTitulo(TITULO_INVALIDO_4);
+        if (titulo->getTitulo() != TITULO_INVALIDO_4)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (titulo->getTitulo() == TITULO_INVALIDO_4)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUTitulo::testarInvalido5() {
+    try {
+        titulo->setTitulo(TITULO_INVALIDO_5);
+        if (titulo->getTitulo() != TITULO_INVALIDO_5)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (titulo->getTitulo() == TITULO_INVALIDO_5)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUTitulo::run() {
+    setUp();
+    testarValido();
+    testarInvalido1();
+    testarInvalido2();
+    testarInvalido3();
+    testarInvalido4();
+    testarInvalido5();
     tearDown();
     return estado;
 };
