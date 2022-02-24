@@ -110,7 +110,7 @@ class TUNome {
         inline static const string NOME_INVALIDO_4 = "Pele Nao  Vai";
         inline static const string NOME_INVALIDO_5 = "Pele Nao .";
         inline static const string NOME_INVALIDO_6 = "Pele Nao Vai..";
-
+        inline static const string NOME_INVALIDO_7 = "Neym4r Jun1or.";
         Nome *nome;
         int estado;
         void setUp();
@@ -122,6 +122,7 @@ class TUNome {
         void testarInvalido4();
         void testarInvalido5();
         void testarInvalido6();
+        void testarInvalido7();
     public:
         static const int SUCESSO = 1;
         static const int FALHA = 0;
