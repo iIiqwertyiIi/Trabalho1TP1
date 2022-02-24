@@ -74,7 +74,7 @@ void Titulo::validar(string titulo) {
         if (isalpha(titulo[i]))
             qtdLetras++;
     if (qtdLetras > 20)
-            throw invalid_argument("Titulo " + titulo + " precisa ter menos de 20 letras");
+        throw invalid_argument("Titulo " + titulo + " precisa ter menos de 20 letras");
     if (qtdLetras < 5)
         throw invalid_argument("Titulo " + titulo + " precisa ter mais de 5 letras");
     for (int i = 0; i < titulo.length(); i++)
