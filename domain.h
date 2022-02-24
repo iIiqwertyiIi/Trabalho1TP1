@@ -46,7 +46,8 @@ class Data {
     private:
         inline static const int TAMANHO = 11;
         inline static const vector<string> MESES = {
-            "Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"
+            "Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul",
+            "Ago", "Set", "Out", "Nov", "Dez"
         };
         string data;
         void validar(string);
