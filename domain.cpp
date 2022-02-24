@@ -253,3 +253,26 @@ void Senha::setSenha(string senha) {
     validar(senha);
     this->senha = senha;
 };
+
+void Titulo::validar(string titulo) {
+    int qtdLetras = 0;
+    for (int i = 0; i < titulo.length(); i++)
+        if (isalpha(titulo[i]))
+            qtdLetras++;
+    if (qtdLetras > 20)
+        throw invalid_argument("Titulo " + titulo + " precisa ter menos de 20 letras");
+    if (qtdLetras < 5)
+        throw invalid_argument("Titulo " + titulo + " precisa ter mais de 5 letras");
+    for (int i = 0; i < titulo.length(); i++)
+        if ((!isalpha(titulo[i])) and (titulo[i] != '.') and (titulo[i] != ' '))
+            throw invalid_argument("Título " + titulo + " contém caracteres inválidos");
+    if (titulo.find("  ") != std::string::npos)
+        throw invalid_argument("Título " + titulo + " não pode conter espaços em branco em sequência");
+    if (titulo.find("..") != std::string::npos)
+        throw invalid_argument("Título " + titulo + " não pode conter '.' em sequencia");
+};
+
+void Titulo::setTitulo(string titulo) {
+    validar(titulo);
+    this->titulo = titulo;
+};

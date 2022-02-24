@@ -244,4 +244,28 @@ class TUSenha {
         int run();
 };
 
+class TUTitulo {
+    private:
+        inline static const string TITULO_VALIDO = "este e um teste valido.";
+        inline static const string TITULO_INVALIDO_1 = "Via  gem com amigos.";
+        inline static const string TITULO_INVALIDO_2 = "eraumacasamuitoengracada";
+        inline static const string TITULO_INVALIDO_3 = "vamosverse da..";
+        inline static const string TITULO_INVALIDO_4 = "foi";
+        inline static const string TITULO_INVALIDO_5 = "Viagem tranquila+";
+        Titulo *titulo;
+        int estado;
+        void setUp();
+        void tearDown();
+        void testarValido();
+        void testarInvalido1();
+        void testarInvalido2();
+        void testarInvalido3();
+        void testarInvalido4();
+        void testarInvalido5();
+    public:
+        static const int SUCESSO = 1;
+        static const int FALHA = 0;
+        int run();
+};
+
 #endif

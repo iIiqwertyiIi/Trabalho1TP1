@@ -179,4 +179,17 @@ inline string Senha::getSenha() const {
     return senha;
 };
 
+class Titulo {
+    private:
+        string titulo;
+        void validar(string);
+    public:
+        void setTitulo(string);
+        string getTitulo() const;
+};
+
+inline string Titulo::getTitulo() const {
+    return titulo;
+};
+
 #endif

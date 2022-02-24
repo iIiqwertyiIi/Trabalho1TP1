@@ -853,3 +853,101 @@ int TUSenha::run() {
     tearDown();
     return estado;
 };
+
+void TUTitulo::setUp() {
+    titulo = new Titulo();
+    estado = SUCESSO;
+};
+
+void TUTitulo::tearDown() {
+    delete titulo;
+};
+
+void TUTitulo::testarValido() {
+    try {
+        titulo->setTitulo(TITULO_VALIDO);
+        if (titulo->getTitulo() != TITULO_VALIDO)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUTitulo::testarInvalido1() {
+    try {
+        titulo->setTitulo(TITULO_INVALIDO_1);
+        if (titulo->getTitulo() != TITULO_INVALIDO_1)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (titulo->getTitulo() == TITULO_INVALIDO_1)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUTitulo::testarInvalido2() {
+    try {
+        titulo->setTitulo(TITULO_INVALIDO_2);
+        if (titulo->getTitulo() != TITULO_INVALIDO_2)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (titulo->getTitulo() == TITULO_INVALIDO_2)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUTitulo::testarInvalido3() {
+    try {
+        titulo->setTitulo(TITULO_INVALIDO_3);
+        if (titulo->getTitulo() != TITULO_INVALIDO_3)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (titulo->getTitulo() == TITULO_INVALIDO_3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUTitulo::testarInvalido4() {
+    try {
+        titulo->setTitulo(TITULO_INVALIDO_4);
+        if (titulo->getTitulo() != TITULO_INVALIDO_4)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (titulo->getTitulo() == TITULO_INVALIDO_4)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUTitulo::testarInvalido5() {
+    try {
+        titulo->setTitulo(TITULO_INVALIDO_5);
+        if (titulo->getTitulo() != TITULO_INVALIDO_5)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (titulo->getTitulo() == TITULO_INVALIDO_5)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUTitulo::run() {
+    setUp();
+    testarValido();
+    testarInvalido1();
+    testarInvalido2();
+    testarInvalido3();
+    testarInvalido4();
+    testarInvalido5();
+    tearDown();
+    return estado;
+};
