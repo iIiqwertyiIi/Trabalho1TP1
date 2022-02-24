@@ -77,6 +77,14 @@ int main() {
         case TUIdioma::FALHA: cout << "FALHA - IDIOMA" << endl;
             break;
     };
+
+    TUNome testeNome;
+    switch(testeNome.run()) {
+        case TUNome::SUCESSO: cout << "SUCESSO - NOME" << endl;
+            break;
+        case TUNome::FALHA: cout << "FALHA - NOME" << endl;
+            break;
+    };
     
     TUNota testeNota;
     switch (testeNota.run()) {
@@ -99,14 +107,6 @@ int main() {
         case TUTitulo::SUCESSO: cout << "SUCESSO - TITULO" << endl;
             break;
         case TUTitulo::FALHA: cout << "FALHA - TITULO" << endl;
-            break;
-    };
-
-    TUNome testeNome;
-    switch(testeNome.run()) {
-        case TUNome::SUCESSO: cout << "SUCESSO - NOME" << endl;
-            break;
-        case TUNome::FALHA: cout << "FALHA - NOME" << endl;
             break;
     };
 };
