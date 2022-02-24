@@ -202,6 +202,34 @@ class TUIdioma {
         int run();
 };
 
+class TUNome {
+    private:
+        inline static const string NOME_VALIDO = "Neymar Junior.";
+        inline static const string NOME_INVALIDO_1 = "Esse Nome E Muito Grande Para Ser Um Nome";
+        inline static const string NOME_INVALIDO_2 = "gabigol";
+        inline static const string NOME_INVALIDO_3 = "Pele deveria";
+        inline static const string NOME_INVALIDO_4 = "Pele Nao  Vai";
+        inline static const string NOME_INVALIDO_5 = "Pele Nao .";
+        inline static const string NOME_INVALIDO_6 = "Pele Nao Vai..";
+        inline static const string NOME_INVALIDO_7 = "Neym4r Jun1or.";
+        Nome *nome;
+        int estado;
+        void setUp();
+        void tearDown();
+        void testarValido();
+        void testarInvalido1();
+        void testarInvalido2();
+        void testarInvalido3();
+        void testarInvalido4();
+        void testarInvalido5();
+        void testarInvalido6();
+        void testarInvalido7();
+    public:
+        static const int SUCESSO = 1;
+        static const int FALHA = 0;
+        int run();
+};
+
 class TUNota {
     private:
         inline static const int NOTA_VALIDA = 2;

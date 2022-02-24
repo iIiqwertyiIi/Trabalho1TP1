@@ -192,4 +192,19 @@ inline string Titulo::getTitulo() const {
     return titulo;
 };
 
+class Nome {
+    private:
+        static const int MIN = 5;
+        static const int MAX = 20;
+        string nome;
+        void validar(string);
+    public:
+        void setNome(string);
+        string getNome() const;
+};
+
+inline string Nome::getNome() const {
+    return nome;
+};
+
 #endif

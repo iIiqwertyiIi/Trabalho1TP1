@@ -204,6 +204,34 @@ void Idioma::setIdioma(string idioma) {
     this->idioma = idioma;
 };
 
+void Nome::validar(string nome) {
+    if (nome.length() < MIN || nome.length() > MAX)
+        throw invalid_argument("Nome " + nome + " inválido. Contém menos que 5 caractéres ou mais que 20.");
+    for (int i = 0; i < nome.length(); i++)
+        if ((!isalpha(nome[i])) and (nome[i] != '.') and (nome[i] != ' '))
+            throw invalid_argument("Nome " + nome + " contém caracteres inválidos");
+    if(!isupper(nome[0]))
+        throw invalid_argument("Todos os termos do nome " + nome + " precisam ter a primeira letra maúscula");
+    for (int i = 0; i < nome.length(); i++) {
+        if(nome[i] == '.' and (!isalpha(nome[i-1])))
+            throw invalid_argument("Nome " + nome + " invalido. Todo (.) precisa ser precedido por letra");
+        if (nome[i] == ' ') {
+            if (nome[i+1] == ' ')
+                throw invalid_argument("Nome " + nome + " possui espaços em branco em sequencia");
+            if (!isupper(nome[i+1]))
+                throw invalid_argument("Todos os termos do nome " + nome + " precisam ter a primeira letra maiúscula");
+        };
+        if(nome[i] == '.')
+            if ((!(i == nome.length()-1)) and (!(nome[i] == ' ')))
+                throw invalid_argument("O (.) do nome " + nome + " deve ser o último caractere ou sucedido por um espaço em branco");
+    };
+};
+
+void Nome::setNome(string nome) {
+    validar(nome);
+    this->nome = nome;
+};
+
 void Nota::validar(int nota) {
     bool valido = false;
     for (int i = 0; i < NOTAS.size(); i++)

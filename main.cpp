@@ -101,4 +101,12 @@ int main() {
         case TUTitulo::FALHA: cout << "FALHA - TITULO" << endl;
             break;
     };
+
+    TUNome testeNome;
+    switch(testeNome.run()) {
+        case TUNome::SUCESSO: cout << "SUCESSO - NOME" << endl;
+            break;
+        case TUNome::FALHA: cout << "FALHA - NOME" << endl;
+            break;
+    };
 };

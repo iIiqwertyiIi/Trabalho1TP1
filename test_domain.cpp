@@ -707,6 +707,125 @@ int TUIdioma::run() {
     return estado;
 };
 
+void TUNome::setUp() {
+    nome = new Nome();
+    estado = SUCESSO;
+};
+
+void TUNome::tearDown() {
+    delete nome;
+};
+
+void TUNome::testarValido() {
+    try {
+        nome->setNome(NOME_VALIDO);
+        if (nome->getNome() != NOME_VALIDO)
+            estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUNome::testarInvalido1() {
+    try {
+        nome->setNome(NOME_INVALIDO_1);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (nome->getNome() == NOME_INVALIDO_1)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUNome::testarInvalido2() {
+    try {
+        nome->setNome(NOME_INVALIDO_2);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (nome->getNome() == NOME_INVALIDO_2)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUNome::testarInvalido3() {
+    try {
+        nome->setNome(NOME_INVALIDO_3);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (nome->getNome() == NOME_INVALIDO_3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUNome::testarInvalido4() {
+    try {
+        nome->setNome(NOME_INVALIDO_4);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (nome->getNome() == NOME_INVALIDO_4)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUNome::testarInvalido5() {
+    try {
+        nome->setNome(NOME_INVALIDO_5);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (nome->getNome() == NOME_INVALIDO_5)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUNome::testarInvalido6() {
+    try {
+        nome->setNome(NOME_INVALIDO_6);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (nome->getNome() == NOME_INVALIDO_6)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUNome::testarInvalido7() {
+    try {
+        nome->setNome(NOME_INVALIDO_7);
+        estado = FALHA;
+    }
+    catch (invalid_argument &excessao) {
+        if (nome->getNome() == NOME_INVALIDO_7)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+int TUNome::run() {
+    setUp();
+    testarValido();
+    testarInvalido1();
+    testarInvalido2();
+    testarInvalido3();
+    testarInvalido4();
+    testarInvalido5();
+    testarInvalido6();
+    testarInvalido7();
+    tearDown();
+    return estado;
+};
+
 void TUNota::setUp() {
     nota = new Nota();
     estado = SUCESSO;
