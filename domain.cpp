@@ -113,22 +113,34 @@ void Data::setData(string data){
 void Nome::validar(string nome){
 
     if (nome.length() < MIN || nome.length() > MAX)
-        throw invalid_argument("Nome " + nome + " inválido. Contém menos que 5 caractéres ou mais que 20.");
+        throw invalid_argument("Nome inválido. Contém menos que 5 caractéres ou mais que 20.");
 
     for (int i = 0; i < nome.length(); i++)
         if ((!isalpha(nome[i])) and (nome[i] != '.') and (nome[i] != ' '))
             throw invalid_argument("Nome contém caracteres inválidos");
 
-    // if (nome.find("  ") != std::string::npos)
-    //     throw invalid_argument("Nome " + nome + " possui caracteres em sequencia");
-
+    if(!isupper(nome[0]))
+        throw invalid_argument("Todos os termos do nome precisam ter a primeira letra maúscula");
+    
     for (int i = 0; i < nome.length(); i++){
-        if (nome.size() && std::isupper(nome[0]))
-            throw invalid_argument("Nome " + nome + " precisa ter a primeira letra maiúscula");
+        if(nome[i] == '.' and (!isalpha(nome[i-1])))
+            throw invalid_argument("Nome invalido. Todo (.) precisa ser precedido por letra");
 
-    // if ((nome[nome.length() - 1] != '.') || (nome[nome.length() - 2] + nome[nome.length() - 1] != '. '))
-    //     throw invalid_argument("Nome " + nome + " não termina com '.' ou '. '");
-    // Isso n funcioina, tentando verifica se tem um ponto e espaço no final da string
+        if (nome[i] == ' '){
+            if (nome[i+1] == ' ')
+                throw invalid_argument("Ivalido. Nome possui espaços em branco em sequencia");
+            
+            if (nome[i+1] == '.')
+                throw invalid_argument("Invalido. (.) não pode ser precedido por espaços");
+                
+            if (!isupper(nome[i+1]))
+                throw invalid_argument("Todos os termos do nome precisam ter a primeira letra maiúscula");
+        }
+
+        if(nome[i] == '.')
+            if ((!(i == nome.length()-1)) and (!(nome[i] == ' ')))
+                throw invalid_argument("O (.) deve ser o ultimo caractere ou sucedido por um espaço em branco");
+    }
 };
 
 void Nome::setNome(string nome){

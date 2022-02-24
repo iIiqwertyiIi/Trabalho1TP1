@@ -103,11 +103,14 @@ class TUData {
 
 class TUNome {
     private:
-        inline static const string NOME_VALIDO = "Neymar Júnior.";
-        inline static const string NOME_INVALIDO_1 = "Esse nome é muito grande para ser um nome";
+        inline static const string NOME_VALIDO = "Neymar Junior.";
+        inline static const string NOME_INVALIDO_1 = "Esse Nome E Muito Grande Para Ser Um Nome";
         inline static const string NOME_INVALIDO_2 = "gabigol";
-        // inline static const string NOME_INVALIDO_3 = "Pelé";
-        // inline static const string NOME_INVALIDO_4 = "pelé";
+        inline static const string NOME_INVALIDO_3 = "Pele deveria";
+        inline static const string NOME_INVALIDO_4 = "Pele Nao  Vai";
+        inline static const string NOME_INVALIDO_5 = "Pele Nao .";
+        inline static const string NOME_INVALIDO_6 = "Pele Nao Vai..";
+
         Nome *nome;
         int estado;
         void setUp();
@@ -115,8 +118,10 @@ class TUNome {
         void testarValido();
         void testarInvalido1();
         void testarInvalido2();
-        // void testarInvalido3();
-        // void testarInvalido4();
+        void testarInvalido3();
+        void testarInvalido4();
+        void testarInvalido5();
+        void testarInvalido6();
     public:
         static const int SUCESSO = 1;
         static const int FALHA = 0;

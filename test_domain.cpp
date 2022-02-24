@@ -366,39 +366,67 @@ void TUNome::testarInvalido2() {
     };
 };
 
-// void TUNome::testarInvalido3() {
-//     try {
-//         nome->setNome(NOME_INVALIDO_3);
-//         estado = FALHA;
-//     }
+void TUNome::testarInvalido3() {
+    try {
+        nome->setNome(NOME_INVALIDO_3);
+        estado = FALHA;
+    }
 
-//     catch (invalid_argument &excessao) {
-//         if (nome->getNome() == NOME_INVALIDO_3)
-//             estado = FALHA;
-//         cout << excessao.what() << endl;
-//     };
-// };
+    catch (invalid_argument &excessao) {
+        if (nome->getNome() == NOME_INVALIDO_3)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
 
-// void TUNome::testarInvalido4() {
-//     try {
-//         nome->setNome(NOME_INVALIDO_4);
-//         estado = FALHA;
-//     }
+void TUNome::testarInvalido4() {
+    try {
+        nome->setNome(NOME_INVALIDO_4);
+        estado = FALHA;
+    }
 
-//     catch (invalid_argument &excessao) {
-//         if (nome->getNome() == NOME_INVALIDO_4)
-//             estado = FALHA;
-//         cout << excessao.what() << endl;
-//     };
-// };
+    catch (invalid_argument &excessao) {
+        if (nome->getNome() == NOME_INVALIDO_4)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUNome::testarInvalido5() {
+    try {
+        nome->setNome(NOME_INVALIDO_5);
+        estado = FALHA;
+    }
+
+    catch (invalid_argument &excessao) {
+        if (nome->getNome() == NOME_INVALIDO_5)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
+
+void TUNome::testarInvalido6() {
+    try {
+        nome->setNome(NOME_INVALIDO_6);
+        estado = FALHA;
+    }
+
+    catch (invalid_argument &excessao) {
+        if (nome->getNome() == NOME_INVALIDO_6)
+            estado = FALHA;
+        cout << excessao.what() << endl;
+    };
+};
 
 int TUNome::run() {
     setUp();
     testarValido();
     testarInvalido1();
     testarInvalido2();
-    // testarInvalido3();
-    // testarInvalido4();
+    testarInvalido3();
+    testarInvalido4();
+    testarInvalido5();
+    testarInvalido6();
     tearDown();
     return estado;
 };
