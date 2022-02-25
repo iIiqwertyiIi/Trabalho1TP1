@@ -1,9 +1,30 @@
 #ifndef TEST_DOMAIN_H_INCLUDED
 #define TEST_DOMAIN_H_INCLUDED
 
+/**
+ * @file test_domain.h
+ * @author Nícolas Paulin Benatto
+ * @author Gabriel Xavier Cardoso
+ * @author Vanessa Paixão Costa
+ * @brief Testes de Unidade para os Domínios
+ * @version 0.1
+ * @date 2022-02-24
+ * 
+ * @copyright Copyright (c) Nícolas, Gabriel e Vanessa 2022
+ * 
+ */
+
 #include "domain.h"
 
 using namespace std;
+
+/**
+ * @brief Teste de Unidade da classe Cidade
+ * @class TUCidade
+ * @author Nícolas 200025627
+ * 
+ * Teste de Unidade para o domínio Cidade com tentativas válidas e inválidas
+ */
 
 class TUCidade {
     private:
@@ -20,6 +41,14 @@ class TUCidade {
         static const int FALHA = 0;
         int run();
 };
+
+/**
+ * @brief Teste de Unidade da classe Codigo
+ * @class TUCodigo
+ * @author Nícolas 200025627
+ * 
+ * Teste de Unidade para o domínio Codigo com tentativas válidas e inválidas
+ */
 
 class TUCodigo {
     private:
@@ -44,6 +73,14 @@ class TUCodigo {
         static const int FALHA = 0;
         int run();
 };
+
+/**
+ * @brief Teste de Unidade da classe Data
+ * @class TUData
+ * @author Gabriel 200046390
+ * 
+ * Teste de Unidade para o domínio Data com tentativas válidas e inválidas
+ */
 
 class TUData {
     private:
@@ -75,6 +112,14 @@ class TUData {
         int run();
 };
 
+/**
+ * @brief Teste de Unidade da classe Descricao
+ * @class TUDescricao
+ * @author Gabriel 200046390
+ * 
+ * Teste de Unidade para o domínio Descrição com tentativas válidas e inválidas
+ */
+
 class TUDescricao {
     private:
         inline static const string DESCRICAO_VALIDA = "Descricão válida";
@@ -95,6 +140,13 @@ class TUDescricao {
         int run();
 };
 
+/**
+ * @brief Teste de Unidade da classe Duracao
+ * @class TUDuracao
+ * @author Vanessa 200028286
+ * 
+ * Teste de Unidade para o domínio Duracao com tentativas válidas e inválidas
+ */
 
 class TUDuracao {
     private:
@@ -111,6 +163,14 @@ class TUDuracao {
         static const int FALHA = 0;
         int run();
 };
+
+/**
+ * @brief Teste de Unidade da classe Email
+ * @class TUEmail
+ * @author Vanessa 200028286
+ * 
+ * Teste de Unidade para o domínio Email com tentativas válidas e inválidas
+ */
 
 class TUEmail {
     private:
@@ -142,6 +202,14 @@ class TUEmail {
         int run();
 };
 
+/**
+ * @brief Teste de Unidade da classe Endereco
+ * @class TUEndereco
+ * @author Nícolas 200025627
+ * 
+ * Teste de Unidade para o domínio Endereco com tentativas válidas e inválidas
+ */
+
 class TUEndereco {
     private:
         inline static const string ENDERECO_VALIDO = "Rua Que eu Quiser";
@@ -161,6 +229,14 @@ class TUEndereco {
         static const int FALHA = 0;
         int run();
 };
+
+/**
+ * @brief Teste de Unidade da classe Horario
+ * @class TUHorario
+ * @author Nícolas 200025627
+ * 
+ * Teste de Unidade para o domínio Horario com tentativas válidas e inválidas
+ */
 
 class TUHorario {
     private:
@@ -186,6 +262,14 @@ class TUHorario {
         int run();
 };
 
+/**
+ * @brief Teste de Unidade da classe Idioma
+ * @class TUIdioma
+ * @author Gabriel 200046390
+ * 
+ * Teste de Unidade para o domínio Idioma com tentativas válidas e inválidas
+ */
+
 class TUIdioma {
     private:
         inline static const string IDIOMA_VALIDO = "Português";
@@ -201,6 +285,14 @@ class TUIdioma {
         static const int FALHA = 0;
         int run();
 };
+
+/**
+ * @brief Teste de Unidade da classe Nome
+ * @class TUNome
+ * @author Gabriel 200046390
+ * 
+ * Teste de Unidade para o domínio Nome com tentativas válidas e inválidas
+ */
 
 class TUNome {
     private:
@@ -230,6 +322,14 @@ class TUNome {
         int run();
 };
 
+/**
+ * @brief Teste de Unidade da classe Nota
+ * @class TUNota
+ * @author Vanessa 200028286
+ * 
+ * Teste de Unidade para o domínio Nota com tentativas válidas e inválidas
+ */
+
 class TUNota {
     private:
         inline static const int NOTA_VALIDA = 2;
@@ -245,6 +345,14 @@ class TUNota {
         static const int FALHA = 0;
         int run();
 };
+
+/**
+ * @brief Teste de Unidade da classe Senha
+ * @class TUSenha
+ * @author Nícolas 200025627
+ * 
+ * Teste de Unidade para o domínio Senha com tentativas válidas e inválidas
+ */
 
 class TUSenha {
     private:
@@ -271,6 +379,14 @@ class TUSenha {
         static const int FALHA = 0;
         int run();
 };
+
+/**
+ * @brief Teste de Unidade da classe Titulo
+ * @class TUTitulo
+ * @author Vanessa 200028286
+ * 
+ * Teste de Unidade para o domínio Titulo com tentativas válidas e inválidas
+ */
 
 class TUTitulo {
     private:

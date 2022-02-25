@@ -1,9 +1,30 @@
 #ifndef ENTITY_H_INCLUDED
 #define ENTITY_H_INCLUDED
 
+/**
+ * @file entity.h
+ * @author Nícolas Paulin Benatto
+ * @author Gabriel Xavier Cardoso
+ * @author Vanessa Paixão Costa
+ * @brief Entidades pedidas no trabalho
+ * @version 0.1
+ * @date 2022-02-24
+ * 
+ * @copyright Copyright (c) Nícolas, Gabriel e Vanessa 2022
+ * 
+ */
+
 #include "domain.h"
 
 using namespace std;
+
+/**
+ * @brief Classe Avaliacao
+ * @class Avaliacao
+ * @author Vanessa 200028286
+ * 
+ * Avaliacao contém domínios Codigo, Nota e Descricao
+ */
 
 class Avaliacao {
     private:
@@ -42,6 +63,14 @@ inline void Avaliacao::setDescricao(const Descricao& descricao) {
 inline Descricao Avaliacao::getDescricao() const {
     return descricao;
 };
+
+/**
+ * @brief Classe Excursao
+ * @class Excursao
+ * @author Gabriel 200046390
+ * 
+ * Excursao contém domínios Codigo, Titulo, Nota, Cidade, Duracao, Descricao e Endereco
+ */
 
 class Excursao {
     private:
@@ -125,6 +154,14 @@ inline Endereco Excursao::getEndereco() const {
     return endereco;
 };
 
+/**
+ * @brief Classe Sessao
+ * @class Sessao
+ * @author Nícolas 200025627
+ * 
+ * Sessao contém domínios Codigo, Data, Horario e Idioma
+ */
+
 class Sessao {
     private:
         Codigo codigo;
@@ -173,6 +210,14 @@ inline void Sessao::setIdioma(const Idioma& idioma) {
 inline Idioma Sessao::getIdioma() const {
     return idioma;
 };
+
+/**
+ * @brief Classe Usuario
+ * @class Usuario
+ * @author Nícolas 200025627
+ * 
+ * Usuario contém domínios Nome, Email e Senha
+ */
 
 class Usuario {
     private:
