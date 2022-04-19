@@ -116,7 +116,8 @@ inline Titulo Excursao::getTitulo() const {
 
 inline void Excursao::setNota(const Nota& nota) {
     this->nota = nota;
-};
+};//--------------------------------------------------------------------------------------------
+
 
 inline Nota Excursao::getNota() const {
     return nota;

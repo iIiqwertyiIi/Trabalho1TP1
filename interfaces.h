@@ -94,6 +94,7 @@ class IServicoAvaliacao {
         virtual bool editarAvaliacao(Avaliacao) = 0;
         virtual bool descadastrarAvaliacao(Codigo) = 0;
         virtual ~IServicoAvaliacao(){}
-};
+};//--------------------------------------------------------------------------------------------
+
 
 #endif
