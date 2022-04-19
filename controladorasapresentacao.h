@@ -50,7 +50,6 @@
  * @class Excursao
  * @author Gabriel 200046390
  * 
- * Excursao contém domínios Codigo, Titulo, Nota, Cidade, Duracao, Descricao e Endereco
  */
 
  inline void CntrApresentacaoControle::setCntrApresentacaoAutenticacao(IApresentacaoAutenticacao *cntr){
@@ -73,7 +72,12 @@ inline void CntrApresentacaoControle::setCntrApresentacaoSessao(IApresentacaoSes
     cntrApresentacaoSessao = cntr;
 }
 
-//--------------------------------------------------------------------------------------------
+/**
+ * @brief Classe Sessao
+ * @class Sessao
+ * @author Nícolas 200025627
+ * 
+ */
 
 class CntrApresentacaoAutenticacao:public IApresentacaoAutenticacao{
     private:
@@ -103,6 +107,14 @@ class cntrApresentacaoAvaliacao:public IApresentacaoAvaliacao{
 inline void CntrApresentacaoAvaliacao::setCntrServicoAvaliacao(IServicoAvaliacao *cntr){
     this->cntr = cntr;
 }
+
+/**
+ * @brief Classe Avaliacao
+ * @class Avaliacao
+ * @author Vanessa 200028286
+ * 
+ * Avaliacao contém domínios Codigo, Nota e Descricao
+ */
 
 class cntrApresentacaoConta:public IApresentacaoConta{
     private:
@@ -136,6 +148,25 @@ class cntrApresentacaoExcursao:public IApresentacaoExcursao{
         void setCntrServicoAvaliacao(IServicoAvaliacao*);
         void setCntrServicoSessao(IServicoSessao*);
 }
+
+inline void CntrApresentacaoExcursao::setCntrApresentacaoExcursao(IApresentacaoExcursao *cntr){
+    cntrApresentacaoExcursao = cntr;
+}
+
+inline void CntrApresentacaoExcursao::setCntrServicoSessao(IApresentacaoSessao *cntr){
+    cntrApresentacaoSessao = cntr;
+}
+
+inline void CntrApresentacaoExcursao::setCntrServicoAvaliacao(IApresentacaoAvaliacao *cntr){
+    cntrApresentacaoAvaliacao = cntr;
+}
+
+/**
+ * @brief Classe Sessao
+ * @class Sessao
+ * @author Nícolas 200025627
+ * 
+ */
 
 class cntrApresentacaoSessao:public IApresentacaoSessao{
     private:
