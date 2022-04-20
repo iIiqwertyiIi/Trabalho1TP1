@@ -15,8 +15,8 @@
  */
 
 #include <string.h>
-#include "courses.h"
-#include "dominios.h"
+#include "curses.h"
+#include "domain.h"
 #include "entity.h"
 #include "interfaces.h"
 
@@ -79,7 +79,7 @@ inline void CntrApresentacaoControle::setCntrApresentacaoSessao(IApresentacaoSes
  * 
  */
 
-class CntrApresentacaoAutenticacao:public IApresentacaoAutenticacao{
+class cntrApresentacaoAutenticacao:public IApresentacaoAutenticacao{
     private:
         IServicoAutenticacao *cntr;
     public:
@@ -87,7 +87,7 @@ class CntrApresentacaoAutenticacao:public IApresentacaoAutenticacao{
         void setCntrServicoAutenticacao(IServicoAutenticacao*);
 };
 
-inline void CntrApresentacaoAutenticacao::setCntrServicoAutenticacao(IServicoAutenticacao *cntr){
+inline void cntrApresentacaoAutenticacao::setCntrServicoAutenticacao(IServicoAutenticacao *cntr){
     this->cntr = cntr;
 }
 
@@ -98,13 +98,14 @@ class cntrApresentacaoAvaliacao:public IApresentacaoAvaliacao{
         void acessarAvaliacao();
         void descadastrarAvaliacao();
         void editarAvaliacao();
+        void setCntrServicoAvaliacao();
     public:
         void executar();
         void executar(Email);
         void setCntrApresentacaoAvaliacao(IServicoAvaliacao*);
 };
 
-inline void CntrApresentacaoAvaliacao::setCntrServicoAvaliacao(IServicoAvaliacao *cntr){
+inline void cntrApresentacaoAvaliacao::setCntrServicoAvaliacao(IServicoAvaliacao *cntr){
     this->cntr = cntr;
 }
 
@@ -121,13 +122,14 @@ class cntrApresentacaoConta:public IApresentacaoConta{
         IServicoConta *cntr;
         void descadastrarConta();
         void editarConta();
+        void setCntrServicoConta();
     public:
         void cadastrarConta();
         void executar(Email);
         void setCntrServicoConta(IServicoConta*);
 };
 
-inline void CntrApresentacaoConta::setCntrServicoConta(IServicoConta *cntr){
+inline void cntrApresentacaoConta::setCntrServicoConta(IServicoConta *cntr){
     this->cntr = cntr;
 }
 
@@ -139,25 +141,28 @@ class cntrApresentacaoExcursao:public IApresentacaoExcursao{
         void cadastrarExcursao();
         void editarExcursao();
         void descadastrarExcursao();
+        void setCntrApresentacaoExcursao();
+        void setCntrServicoSessao();
+        void setCntrServicoAvaliacao();
     public:
         executar();
         executar(Email);
-        void listarExcursoses();
+        void listarExcursoes();
         void acessarExcursao();
         void setCntrServicoExcursao(IServicoExcursao*);
         void setCntrServicoAvaliacao(IServicoAvaliacao*);
         void setCntrServicoSessao(IServicoSessao*);
-}
+};
 
-inline void CntrApresentacaoExcursao::setCntrApresentacaoExcursao(IApresentacaoExcursao *cntr){
+inline void cntrApresentacaoExcursao::setCntrApresentacaoExcursao(IApresentacaoExcursao *cntr){
     cntrApresentacaoExcursao = cntr;
 }
 
-inline void CntrApresentacaoExcursao::setCntrServicoSessao(IApresentacaoSessao *cntr){
+inline void cntrApresentacaoExcursao::setCntrServicoSessao(IApresentacaoSessao *cntr){
     cntrApresentacaoSessao = cntr;
 }
 
-inline void CntrApresentacaoExcursao::setCntrServicoAvaliacao(IApresentacaoAvaliacao *cntr){
+inline void cntrApresentacaoExcursao::setCntrServicoAvaliacao(IApresentacaoAvaliacao *cntr){
     cntrApresentacaoAvaliacao = cntr;
 }
 
@@ -175,9 +180,14 @@ class cntrApresentacaoSessao:public IApresentacaoSessao{
         void editarSessao();
         void descadastrarSessao();
     public:
-        executar();
-        executar(Email);
+        void executar();
+        void executar(Email);
         void acessarSessao();
         void setCntrServicoSessao(IServicoSessao*);
+};
+
+inline void cntrApresentacaoSessao::setCntrServicoSessao(IServicoSessao *cntr){
+    cntrApresentacaoSessao = cntr;
 }
+
 #endif

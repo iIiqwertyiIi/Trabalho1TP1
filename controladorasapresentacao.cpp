@@ -23,7 +23,7 @@ void CntrApresentacaoControle::executar(){
     char texto11[]="Selecione um dos serviços: ";
     char texto12[]="1 - Listar excursões.";
     char texto13[]="2 - Acessar uma excursão.";
-    char texto14[]="3 - Encerrar sessão."
+    char texto14[]="3 - Encerrar sessão.";
 
 
     int campo;                                                                                  // Campo de entrada.
@@ -101,9 +101,9 @@ void CntrApresentacaoControle::executar(){
                             echo();
 
                             switch(campo){
-                                case 1: cntrApresentacaoExcursao->listarExcursoses();                 // Solicita servi�o de pessoal.
+                                case 1: cntrApresentacaoExcursao->listarExcursoes();                 // Solicita servi�o de pessoal.
                                         break;
-                                case 2: cntrApresentacaoExcursao->acessarExcursao();     // Solicita servi�o de produto financeiro.
+                                case 2: cntrApresentacaoExcursao->acessarExcursoes();     // Solicita servi�o de produto financeiro.
                                         break;
                                 case 3: apresentar = false;
                                         break;
@@ -120,7 +120,7 @@ void CntrApresentacaoControle::executar(){
 
 //------------Tela de autenticação--------------------------------------------------------------------------------
 
-bool CntrApresentacaoAutenticacao::autenticar(Email *email){
+bool cntrApresentacaoAutenticacao::autenticar(Email *email){
 
     // Mensagens a serem apresentadas na tela de autentica��o.
 
@@ -152,8 +152,8 @@ bool CntrApresentacaoAutenticacao::autenticar(Email *email){
         getstr(campo2);                                                                         // L� valor do campo.
 
         try{
-            cpf->setValor(string(campo1));                                                      // Atribui valor ao CPF.
-            senha.setValor(string(campo2));                                                     // Atribui Valor � senha.
+            email->setEmail(string(campo1));                                                      // Atribui valor ao CPF.
+            senha->setSenha(string(campo2));                                                     // Atribui Valor � senha.
             break;                                                                              // Abandona la�o em caso de formatos corretos.
         }
         catch(invalid_argument &exp){                                                           // Captura exce��o devido a formato incorreto.
@@ -311,9 +311,9 @@ void CntrApresentacaoConta::cadastrar(){
     mvprintw(linha/4 + 12,coluna/4,"%s",texto7);                                                // Imprime nome do campo.
 
     try{
-        nome.setValor(string(campo1));
-        email.setValor(string(campo2));
-        senha.setValor(string(campo3));
+        nome.setNome(string(campo1));
+        email.setEmail(string(campo2));
+        senha.setSenha(string(campo3));
     }
     catch(invalid_argument &exp){
         mvprintw(linha/4 + 18,coluna/4,"%s",texto5);                                           // Informa formato incorreto.
@@ -426,12 +426,12 @@ void CntrApresentacaoExcursao::cadastrarExcursao(){
         mvprintw(linha/4 + 12,coluna/4,"%s",texto7);                                             // Imprime nome do campo.
 
         try{
-            codigo.setValor(string(campo1));
-            titulo.setValor(string(campo2));
-            cidade.setValor(string(campo3));
-            duracao.setValor(string(campo4));
-            descricao.setValor(string(campo5));
-            endereco.setValor(string(campo6));
+            codigo.setCodigo(string(campo1));
+            titulo.setTitulo(string(campo2));
+            cidade.setCidade(string(campo3));
+            duracao.setDuracao(string(campo4));
+            descricao.setDescricao(string(campo5));
+            endereco.setEndereco(string(campo6));
         }
         catch(invalid_argument &exp){
             mvprintw(linha/4 + 14,coluna/4,"%s",texto8); 
@@ -510,11 +510,11 @@ void CntrApresentacaoExcursao::editarExcursao(){
         mvprintw(linha/4 + 10,coluna/4,"%s",texto6);                                             // Imprime nome do campo.
 
         try{
-            titulo.setValor(string(campo1));
-            cidade.setValor(string(campo2));
-            duracao.setValor(string(campo3));
-            descricao.setValor(string(campo4));
-            endereco.setValor(string(campo5));
+            titulo.setTitulo(string(campo1));
+            cidade.setCidade(string(campo2));
+            duracao.setDuracao(string(campo3));
+            descricao.setDescricao(string(campo4));
+            endereco.setEndereco(string(campo5));
         }
         catch(invalid_argument &exp){
             mvprintw(linha/4 + 14,coluna/4,"%s",texto7); 
@@ -581,7 +581,7 @@ void CntrApresentacaoExcursao::descadastrarExcursao(){
     getstr(campo);  
 
     try{
-        codigo.setValor(string(campo));
+        codigo.setCodigo(string(campo));
     }
     catch(invalid_argument &exp){
         mvprintw(linha/4 + 4,coluna/4,"%s",texto3);                                           // Informa formato incorreto.
@@ -639,8 +639,8 @@ void CntrApresentacaoConta::editarConta(){
         mvprintw(linha/4 + 4,coluna/4,"%s",texto3);                                             // Imprime nome do campo.
 
         try{
-            nome.setValor(string(campo1));
-            senha.setValor(string(campo2));
+            nome.setNome(string(campo1));
+            senha.setSenha(string(campo2));
         }
         catch(invalid_argument &exp){
             mvprintw(linha/4 + 6,coluna/4,"%s",texto4); 
@@ -707,7 +707,7 @@ void CntrApresentacaoConta::descadastrarConta(){
     getstr(campo);  
 
     try{
-        email.setValor(string(campo));
+        email.setEmail(string(campo));
     }
     catch(invalid_argument &exp){
         mvprintw(linha/4 + 4,coluna/4,"%s",texto3);                                           // Informa formato incorreto.
