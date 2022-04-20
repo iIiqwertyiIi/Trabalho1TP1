@@ -145,8 +145,8 @@ class cntrApresentacaoExcursao:public IApresentacaoExcursao{
         void setCntrServicoSessao();
         void setCntrServicoAvaliacao();
     public:
-        executar();
-        executar(Email);
+        void executar();
+        void executar(Email);
         void listarExcursoes();
         void acessarExcursao();
         void setCntrServicoExcursao(IServicoExcursao*);
