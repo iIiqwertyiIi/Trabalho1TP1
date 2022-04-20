@@ -22,9 +22,6 @@ class IApresentacaoConta {
         virtual void executar(Email) = 0;
         virtual void cadastrar() = 0;
         virtual void setCntrServicoConta(IServicoConta*) = 0;
-        virtual void setCntrServicoExcursao(IServicoExcursao*) = 0;
-        virtual void setCntrServicoSessao(IServicoSessao*) = 0;
-        virtual void setCntrServicoAvaliacao(IServicoAvaliacao*) = 0;
         virtual ~IApresentacaoConta(){}
 };
 
@@ -32,9 +29,8 @@ class IApresentacaoExcursao {
     public:
         virtual void executar() = 0;
         virtual void executar(Email) = 0;
+        virtual void setCntrServicoConta(IServicoConta*) = 0;
         virtual void setCntrServicoExcursao(IServicoExcursao*) = 0;
-        virtual void setCntrServicoSessao(IServicoSessao*) = 0;
-        virtual void setCntrServicoAvaliacao(IServicoAvaliacao*) = 0;
         virtual ~IApresentacaoExcursao(){}
 };
 
@@ -43,6 +39,7 @@ class IApresentacaoSessao {
         virtual void executar() = 0;
         virtual void executar(Email) = 0;
         virtual void setCntrServicoSessao(IServicoSessao*) = 0;
+        virtual void setCntrServicoExcursao(IServicoExcursao*) = 0;
         virtual ~IApresentacaoSessao(){}
 };
 
@@ -51,6 +48,7 @@ class IApresentacaoAvaliacao {
         virtual void executar() = 0;
         virtual void executar(Email) = 0;
         virtual void setCntrServicoAvaliacao(IServicoAvaliacao*) = 0;
+        virtual void setCntrServicoExcursao(IServicoExcursao*) = 0;
         virtual ~IApresentacaoAvaliacao(){}
 };
 
@@ -94,6 +92,7 @@ class IServicoAvaliacao {
         virtual bool editarAvaliacao(Avaliacao) = 0;
         virtual bool descadastrarAvaliacao(Codigo) = 0;
         virtual ~IServicoAvaliacao(){}
-};
+};//--------------------------------------------------------------------------------------------
+
 
 #endif
